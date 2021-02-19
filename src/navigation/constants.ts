@@ -8,6 +8,7 @@
 // screen names.
 const SCREEN_NAMES = Object.freeze({
     "SPLAH": "SplashScreen",
+    "HOME": "HomeScreen",
 });
 
 // export all.
