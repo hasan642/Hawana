@@ -15,6 +15,7 @@ import {
 import styles from './styles';
 import { Text } from 'components';
 import { useTheme } from 'react-native-paper';
+import { translate } from 'i18n';
 
 /**
  * type checking
@@ -85,7 +86,7 @@ function SplashScreen({
             </View>
 
             <Text style={styles.msg}>
-                {'“ write your quotes ”'}
+                {`“ ${translate('splashScreen.writeQuotes')} ”`}
             </Text>
         </View>
     );

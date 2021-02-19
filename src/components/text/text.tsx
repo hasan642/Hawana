@@ -11,7 +11,6 @@ import {
     TextStyle
 } from 'react-native';
 import { useTheme } from 'react-native-paper';
-import styles from './styles';
 
 // type checking.
 interface TextProps {

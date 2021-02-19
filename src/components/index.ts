@@ -6,3 +6,4 @@
  */
 
 export { default as Text } from './text/text';
+export { default as Loader } from './loader/loader';
