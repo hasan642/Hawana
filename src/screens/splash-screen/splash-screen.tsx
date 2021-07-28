@@ -15,12 +15,14 @@ import {
 import styles from './styles';
 import { Text } from 'components';
 import { useTheme } from 'react-native-paper';
+import { AllStackNavParams } from 'navigation/types';
+import { APP_NAME } from 'config';
 
 /**
  * type checking
  */
 interface SplashScreenProps {
-    navigation: StackNavigationProp<any>;
+    navigation: StackNavigationProp<AllStackNavParams, 'SplashScreen'>;
 };
 
 /**
@@ -74,7 +76,7 @@ function SplashScreen({
                 />
 
                 <Text style={styles.appName}>
-                    {' HAWANA '}
+                    {` ${APP_NAME} `}
                 </Text>
 
                 <Image

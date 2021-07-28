@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SplashScreen } from 'screens';
-import { CONSTANTS } from 'navigation';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { THEME } from 'theme';
 import {
@@ -10,9 +9,10 @@ import {
   ThemeContext,
   IThemeContextProvider
 } from 'context';
+import { AllStackNavParams } from 'navigation/types';
 
 // create the main stack.
-const MainStack = createStackNavigator();
+const MainStack = createStackNavigator<AllStackNavParams>();
 
 /**
  * A main function component that shows an entire app.
@@ -33,13 +33,20 @@ const InternalApp = () => {
   return (
     <PaperProvider theme={THEME[selectedTheme]}>
       <NavigationContainer>
-        <MainStack.Navigator>
+        <MainStack.Navigator
+          initialRouteName={'SplashScreen'}
+          screenOptions={{
+            headerShown: false
+          }}
+        >
           <MainStack.Screen
-            name={CONSTANTS.SCREEN_NAMES.SPLAH}
+            name={'SplashScreen'}
             component={SplashScreen}
-            options={{
-              headerShown: false
-            }}
+          />
+
+          <MainStack.Screen
+            name={'HomeScreen'}
+            component={SplashScreen}
           />
         </MainStack.Navigator>
       </NavigationContainer>

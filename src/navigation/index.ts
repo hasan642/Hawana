@@ -5,4 +5,4 @@
  * created at: 19/02/2021
  */
 
-export { default as CONSTANTS } from './constants';
+export * from './types';

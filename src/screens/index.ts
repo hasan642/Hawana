@@ -6,3 +6,4 @@
  */
 
 export { default as SplashScreen } from './splash-screen/splash-screen';
+export { default as HomeScreen } from './home-screen/home-screen';
