@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SplashScreen } from 'screens';
@@ -10,6 +10,7 @@ import {
   IThemeContextProvider
 } from 'context';
 import { AllStackNavParams } from 'navigation/types';
+import { setI18nConfig } from 'i18n';
 
 // create the main stack.
 const MainStack = createStackNavigator<AllStackNavParams>();
@@ -27,8 +28,21 @@ const App = () => {
 
 const InternalApp = () => {
 
+  // state.
+  const [isSetupCompleted, setIsSetupCompleted] = useState<boolean>(false);
+
+  // do the setup.
+  useEffect(() => {
+    setI18nConfig().then(_ => {
+      setIsSetupCompleted(true);
+    });
+  }, []);
+
   // get the selected theme from theme context.
   const { selectedTheme } = useContext<IThemeContextProvider>(ThemeContext as any);
+
+  // if setup is not completed, do no thing.
+  if (!isSetupCompleted) return null;
 
   return (
     <PaperProvider theme={THEME[selectedTheme]}>

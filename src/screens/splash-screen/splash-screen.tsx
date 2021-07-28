@@ -17,6 +17,7 @@ import { Text } from 'components';
 import { useTheme } from 'react-native-paper';
 import { AllStackNavParams } from 'navigation/types';
 import { APP_NAME } from 'config';
+import { translate } from 'i18n';
 
 /**
  * type checking
@@ -87,7 +88,7 @@ function SplashScreen({
             </View>
 
             <Text style={styles.msg}>
-                {'“ write your quotes ”'}
+                {translate('splashScreen.writeQuotes')}
             </Text>
         </View>
     );

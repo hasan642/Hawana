@@ -1,4 +1,6 @@
 {
     "common": {},
-    "splashScreen": {}
+    "splashScreen": {
+        "writeQuotes": " “ write your quotes ” "
+    }
 }
