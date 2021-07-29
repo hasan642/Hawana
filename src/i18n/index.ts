@@ -10,7 +10,7 @@ import memoize from "lodash.memoize";
 import i18n from "i18n-js";
 import { I18nManager } from 'react-native';
 import RNRestart from 'react-native-restart';
-import { supportedLocales } from "./locales";
+import { locales, supportedLocales } from "./locales";
 import { StorageHelper } from "helperes";
 
 /**
@@ -30,17 +30,16 @@ export async function setI18nConfig(): Promise<boolean> {
      * get current language from storage.
      */
     const currentLanguageFromStorage = await StorageHelper.get('@language');
-    console.log({ currentLanguageFromStorage });
 
     /**
      * final lang.
      */
-    const language: string = currentLanguageFromStorage || supportedLocales.en as any;
+    const language: string = currentLanguageFromStorage || supportedLocales.en;
 
     /**
      * set i18n-js config.
      */
-    i18n.translations = { [language]: supportedLocales[language]() };
+    i18n.translations = { [language]: locales[language]() };
     i18n.locale = language;
 
     // return true if every thing is OK.
@@ -50,7 +49,7 @@ export async function setI18nConfig(): Promise<boolean> {
 /**
  * Chnages the app language and restart.
  */
-export function changeLanguage(lang: keyof typeof supportedLocales) {
+export function changeLanguage(lang: keyof typeof locales) {
     i18n.locale = lang;
     StorageHelper.save(
         '@language',

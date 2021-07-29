@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SplashScreen } from 'screens';
+import { HomeScreen, SplashScreen } from 'screens';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { THEME } from 'theme';
 import {
@@ -49,18 +49,21 @@ const InternalApp = () => {
       <NavigationContainer>
         <MainStack.Navigator
           initialRouteName={'SplashScreen'}
-          screenOptions={{
-            headerShown: false
-          }}
         >
           <MainStack.Screen
             name={'SplashScreen'}
             component={SplashScreen}
+            options={{
+              headerShown: false
+            }}
           />
 
           <MainStack.Screen
             name={'HomeScreen'}
-            component={SplashScreen}
+            component={HomeScreen}
+            options={{
+              headerTitle: () => null
+            }}
           />
         </MainStack.Navigator>
       </NavigationContainer>

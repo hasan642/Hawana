@@ -9,6 +9,7 @@ const color = Object.freeze({
     light: '#FFF',
     dark: '#000',
     primary: '#ff3e51',
+    pampas: '#F0EEE9'
 });
 
 // export as default.

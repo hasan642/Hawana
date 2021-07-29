@@ -5,7 +5,7 @@
  * created at: 21/12/2020
  */
 
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useEffect } from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
 import {
     TouchableOpacity,
@@ -36,33 +36,12 @@ function SplashScreen({
     // use paper theme.
     const { colors: themeColors } = useTheme();
 
-    /**
-     * Handles left header press.
-     */
-    const handleLeftHeaderPress = () => {
-        // navigation.n
-    };
-
-    // set layout effect.
-    useLayoutEffect(
-        () => {
-            navigation.setOptions({
-                headerLeft: () => (
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={handleLeftHeaderPress}
-                    >
-                        <Image
-                            source={require('assets/list.png')}
-                            style={styles.menuIcon}
-                            resizeMode='contain'
-                        />
-                    </TouchableOpacity>
-                )
-            })
-        },
-        []
-    );
+    // navgates to home screen.
+    useEffect(() => {
+        setTimeout(() => {
+            navigation.navigate('HomeScreen');
+        }, 5000);
+    }, []);
 
     return (
         <View style={[

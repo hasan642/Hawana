@@ -16,11 +16,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    menuIcon: {
-        height: 32,
-        width: 32,
-        marginLeft: 16
-    },
     quotesContainer: {
         flexDirection: 'row',
         alignItems: 'center',
