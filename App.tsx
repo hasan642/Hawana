@@ -6,8 +6,6 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import {THEME} from 'theme';
 import {ThemeContextState, ThemeContext, IThemeContextProvider} from 'context';
 import {AllStackNavParams} from 'navigation/types';
-import {NotificationHelper} from 'helperes';
-import {QUOTES} from 'config';
 import {setI18nConfig} from 'i18n';
 
 // create the main stack.
@@ -30,8 +28,6 @@ const InternalApp = () => {
 
   // do the setup.
   useEffect(() => {
-    NotificationHelper.scheduleNotification(1, QUOTES[0].time, QUOTES[0].text);
-
     setI18nConfig().then((_) => {
       setIsSetupCompleted(true);
     });

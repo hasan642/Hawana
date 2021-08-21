@@ -6,7 +6,7 @@
  */
 
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import {LOCAL_NOTIFICATION_SOUND_NAME} from 'config';
+import {LOCAL_NOTIFICATION_SOUND_NAME, QUOTES} from 'config';
 import PushNotification from 'react-native-push-notification';
 
 /**
@@ -59,11 +59,82 @@ export function init() {
 }
 
 /**
+ * Schedule notifications for all the day.
+ */
+export function scheduleNotificationsForAllTheDay() {
+  // scedule for '12:12 AM'
+  const date12And12 = new Date();
+  date12And12.setHours(24, 12, 0, 0);
+  scheduleNotification(1, QUOTES[0].time, QUOTES[0].text, date12And12);
+
+  // scedule for '01:01 AM'
+  const date1And1 = new Date();
+  date12And12.setHours(1, 1, 0, 0);
+  scheduleNotification(2, QUOTES[1].time, QUOTES[1].text, date1And1);
+
+  // scedule for '02:02 AM'
+  const date2And2 = new Date();
+  date12And12.setHours(2, 2, 0, 0);
+  scheduleNotification(3, QUOTES[2].time, QUOTES[2].text, date2And2);
+
+  // scedule for '03:03 AM'
+  const date3And3 = new Date();
+  date12And12.setHours(3, 3, 0, 0);
+  scheduleNotification(4, QUOTES[3].time, QUOTES[3].text, date3And3);
+
+  // scedule for '04:04 AM'
+  const date4And4 = new Date();
+  date12And12.setHours(4, 4, 0, 0);
+  scheduleNotification(5, QUOTES[4].time, QUOTES[4].text, date4And4);
+
+  // scedule for '05:05 AM'
+  const date5And5 = new Date();
+  date12And12.setHours(5, 5, 0, 0);
+  scheduleNotification(6, QUOTES[5].time, QUOTES[5].text, date5And5);
+
+  // scedule for '06:06 AM'
+  const date6And6 = new Date();
+  date12And12.setHours(6, 6, 0, 0);
+  scheduleNotification(7, QUOTES[6].time, QUOTES[6].text, date6And6);
+
+  // scedule for '07:07 AM'
+  const date7And7 = new Date();
+  date12And12.setHours(7, 7, 0, 0);
+  scheduleNotification(8, QUOTES[7].time, QUOTES[7].text, date7And7);
+
+  // scedule for '08:08 AM'
+  const date8And8 = new Date();
+  date12And12.setHours(8, 8, 0, 0);
+  scheduleNotification(9, QUOTES[8].time, QUOTES[8].text, date8And8);
+
+  // scedule for '09:09 AM'
+  const date9And9 = new Date();
+  date12And12.setHours(9, 9, 0, 0);
+  scheduleNotification(10, QUOTES[9].time, QUOTES[9].text, date9And9);
+
+  // scedule for '10:10 AM'
+  const date10And10 = new Date();
+  date12And12.setHours(10, 10, 0, 0);
+  scheduleNotification(11, QUOTES[10].time, QUOTES[10].text, date10And10);
+
+  // scedule for '11:11 AM'
+  const date11And11 = new Date();
+  date12And12.setHours(11, 11, 0, 0);
+  scheduleNotification(12, QUOTES[11].time, QUOTES[11].text, date11And11);
+}
+
+/**
  * Schdule notification.
  */
-export function scheduleNotification(id: number, title: string, msg: string) {
+export function scheduleNotification(
+  id: number,
+  title: string,
+  msg: string,
+  date: Date,
+) {
   PushNotification.localNotificationSchedule({
-    date: new Date(Date.now() + 10 * 1000), // in 30 secs
+    date,
+    // repeatType: 'day',
 
     /* Android Only Properties */
     // channelId: 'default-channel-id',
