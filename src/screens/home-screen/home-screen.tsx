@@ -14,7 +14,7 @@ import {Text} from 'components';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {COLOR} from 'theme';
 import {changeLanguage} from 'i18n';
-import {QUOTES} from 'config/';
+import {APP_NAME, QUOTES} from 'config';
 
 /**
  * type checking.
@@ -35,15 +35,27 @@ function HomeScreen({navigation}: HomeScreenProps) {
   // set layout effect.
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity activeOpacity={1} onPress={handleLeftHeaderPress}>
-          <Image
-            source={require('assets/list.png')}
-            style={styles.menuIcon}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
-      ),
+      headerStyle: {
+        backgroundColor: COLOR.primary,
+        borderBottomWidth: 0,
+        borderBottomColor: COLOR.primary,
+        elevation: 0,
+        shadowRadius: 0,
+        shadowOffset: {
+          height: 0,
+          width: 0,
+        },
+      },
+      headerLeft: () => null,
+      // headerLeft: () => (
+      //   <TouchableOpacity activeOpacity={1} onPress={handleLeftHeaderPress}>
+      //     <Image
+      //       source={require('assets/language.png')}
+      //       style={styles.menuIcon}
+      //       resizeMode="contain"
+      //     />
+      //   </TouchableOpacity>
+      // ),
     });
   }, []);
 
@@ -59,9 +71,8 @@ function HomeScreen({navigation}: HomeScreenProps) {
    */
   const renderQuoteItem = ({item}: {item: any}) => {
     return (
-      <View style={[styles.liHolder, {backgroundColor: COLOR.pampas}]}>
+      <View style={[styles.liHolder, {backgroundColor: COLOR.light}]}>
         <Text style={styles.liQuote}>{`“ ${item.text} ”`}</Text>
-
         <Text style={styles.liTime}>{item.time}</Text>
       </View>
     );

@@ -3,11 +3,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen, SplashScreen} from 'screens';
 import {Provider as PaperProvider} from 'react-native-paper';
-import {THEME} from 'theme';
+import {COLOR, THEME} from 'theme';
 import {ThemeContextState, ThemeContext, IThemeContextProvider} from 'context';
 import {AllStackNavParams} from 'navigation/types';
 import {setI18nConfig} from 'i18n';
-
+import {APP_NAME} from 'config';
+import {Text} from 'components';
 // create the main stack.
 const MainStack = createStackNavigator<AllStackNavParams>();
 
@@ -57,7 +58,11 @@ const InternalApp = () => {
             name={'HomeScreen'}
             component={HomeScreen}
             options={{
-              headerTitle: () => null,
+              headerTitle: () => (
+                <Text style={{color: COLOR.light, fontSize: 32}}>
+                  {'Hawana'}
+                </Text>
+              ),
             }}
           />
         </MainStack.Navigator>
