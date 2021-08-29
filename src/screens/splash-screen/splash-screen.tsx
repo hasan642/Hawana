@@ -5,73 +5,75 @@
  * created at: 21/12/2020
  */
 
-import React, { useLayoutEffect, useEffect } from 'react';
-import { StackNavigationProp } from '@react-navigation/stack';
-import {
-    TouchableOpacity,
-    Image,
-    View
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {Image, View} from 'react-native';
 import styles from './styles';
-import { Text } from 'components';
-import { useTheme } from 'react-native-paper';
-import { AllStackNavParams } from 'navigation/types';
-import { APP_NAME } from 'config';
-import { translate } from 'i18n';
+import {Text} from 'components';
+import {useTheme} from 'react-native-paper';
+import {AllStackNavParams} from 'navigation/types';
+import {APP_NAME} from 'config';
+import {translate} from 'i18n';
+import PushNotification from 'react-native-push-notification';
+import {NotificationHelper} from 'helperes';
 
 /**
  * type checking
  */
 interface SplashScreenProps {
-    navigation: StackNavigationProp<AllStackNavParams, 'SplashScreen'>;
-};
+  navigation: StackNavigationProp<AllStackNavParams, 'SplashScreen'>;
+}
 
 /**
  * A function component that shows a SplashScreen.
  */
-function SplashScreen({
-    navigation
-}: SplashScreenProps) {
+function SplashScreen({navigation}: SplashScreenProps) {
+  // use paper theme.
+  const {colors: themeColors} = useTheme();
 
-    // use paper theme.
-    const { colors: themeColors } = useTheme();
+  // navgates to home screen.
+  useEffect(() => {
+    PushNotification.requestPermissions(['alert', 'badge', 'sound']).then(
+      (_) => {
+        // scedule notifications.
+        // NotificationHelper.scheduleNotificationsForAllTheDay();
 
-    // navgates to home screen.
-    useEffect(() => {
+        NotificationHelper.scheduleNotification(
+          12,
+          '01:01',
+          'أن يُصاب الإنسانُ بإنسانٍ آخر 💜🌻',
+          new Date(new Date().getTime() + 5 * 1000),
+        );
+
         setTimeout(() => {
-            navigation.navigate('HomeScreen');
-        }, 5000);
-    }, []);
-
-    return (
-        <View style={[
-            styles.container,
-            { backgroundColor: themeColors.primary }
-        ]}>
-            <View style={styles.quotesContainer}>
-                <Image
-                    source={require('assets/left-quote.png')}
-                    style={styles.quoteImg}
-                    resizeMode='contain'
-                />
-
-                <Text style={styles.appName}>
-                    {` ${APP_NAME} `}
-                </Text>
-
-                <Image
-                    source={require('assets/right-quote.png')}
-                    style={styles.quoteImg}
-                    resizeMode='contain'
-                />
-            </View>
-
-            <Text style={styles.msg}>
-                {translate('splashScreen.writeQuotes')}
-            </Text>
-        </View>
+          navigation.navigate('HomeScreen');
+        }, 2000);
+      },
     );
-};
+  }, []);
+
+  return (
+    <View style={[styles.container, {backgroundColor: themeColors.primary}]}>
+      <View style={styles.quotesContainer}>
+        <Image
+          source={require('assets/left-quote.png')}
+          style={styles.quoteImg}
+          resizeMode="contain"
+        />
+
+        <Text style={styles.appName}>{` ${APP_NAME} `}</Text>
+
+        <Image
+          source={require('assets/right-quote.png')}
+          style={styles.quoteImg}
+          resizeMode="contain"
+        />
+      </View>
+
+      <Text style={styles.msg}>{translate('splashScreen.writeQuotes')}</Text>
+    </View>
+  );
+}
 
 /**
  * export as default.

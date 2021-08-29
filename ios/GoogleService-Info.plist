@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>827502870482-4spdsmalv6j3ve8ldne68eb7ae5i2igq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.827502870482-4spdsmalv6j3ve8ldne68eb7ae5i2igq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCXjoLF68-t50jewACH8PVwIBm3E5vy7KI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>827502870482</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hawana</string>
+	<key>PROJECT_ID</key>
+	<string>hawana-a8a1b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hawana-a8a1b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:827502870482:ios:7a6096849cfe5de6a2920b</string>
+</dict>
+</plist>

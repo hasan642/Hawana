@@ -11,6 +11,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		18AD783726D035A6002E5FAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18AD783626D035A6002E5FAB /* GoogleService-Info.plist */; };
+		18AD79B526D05FEA002E5FAB /* notification-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18AD79B426D05FEA002E5FAB /* notification-sound.mp3 */; };
 		2B5B114A5A6697A78CECADC5 /* libPods-Hawana-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F51CA428A271DD113EA2F5E /* libPods-Hawana-tvOSTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -50,6 +52,9 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Hawana/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Hawana/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Hawana/main.m; sourceTree = "<group>"; };
+		18AD782526D03061002E5FAB /* Hawana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Hawana.entitlements; path = Hawana/Hawana.entitlements; sourceTree = "<group>"; };
+		18AD783626D035A6002E5FAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18AD79B426D05FEA002E5FAB /* notification-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "notification-sound.mp3"; path = "Hawana/notification-sound.mp3"; sourceTree = "<group>"; };
 		1C38BEB31F18A64183901ED5 /* Pods-Hawana-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hawana-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Hawana-tvOS/Pods-Hawana-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		22757C899D45F5F987CFD6DC /* Pods-Hawana-HawanaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hawana-HawanaTests.release.xcconfig"; path = "Target Support Files/Pods-Hawana-HawanaTests/Pods-Hawana-HawanaTests.release.xcconfig"; sourceTree = "<group>"; };
 		2AD08CF0D128374FC7483E42 /* Pods-Hawana-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hawana-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Hawana-tvOS/Pods-Hawana-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +130,8 @@
 		13B07FAE1A68108700A75B9A /* Hawana */ = {
 			isa = PBXGroup;
 			children = (
+				18AD783626D035A6002E5FAB /* GoogleService-Info.plist */,
+				18AD782526D03061002E5FAB /* Hawana.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -159,6 +166,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				18AD79B426D05FEA002E5FAB /* notification-sound.mp3 */,
 				13B07FAE1A68108700A75B9A /* Hawana */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* HawanaTests */,
@@ -194,7 +202,6 @@
 				A7B32B68340FF22DC6C4C729 /* Pods-Hawana-tvOSTests.debug.xcconfig */,
 				B47961C8B8167632CAA0BA8E /* Pods-Hawana-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -294,6 +301,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 346UHRM9D6;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -341,7 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				18AD79B526D05FEA002E5FAB /* notification-sound.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				18AD783726D035A6002E5FAB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,16 +729,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = Hawana/Hawana.entitlements;
+				CURRENT_PROJECT_VERSION = "3 ";
+				DEVELOPMENT_TEAM = 346UHRM9D6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Hawana/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hawana;
 				PRODUCT_NAME = Hawana;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -742,15 +755,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = Hawana/Hawana.entitlements;
+				CURRENT_PROJECT_VERSION = "3 ";
+				DEVELOPMENT_TEAM = 346UHRM9D6;
 				INFOPLIST_FILE = Hawana/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hawana;
 				PRODUCT_NAME = Hawana;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
