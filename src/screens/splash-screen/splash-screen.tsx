@@ -36,15 +36,9 @@ function SplashScreen({navigation}: SplashScreenProps) {
     PushNotification.requestPermissions(['alert', 'badge', 'sound']).then(
       (_) => {
         // scedule notifications.
-        // NotificationHelper.scheduleNotificationsForAllTheDay();
+        NotificationHelper.scheduleNotificationsForAllTheDay();
 
-        NotificationHelper.scheduleNotification(
-          12,
-          '01:01',
-          'أن يُصاب الإنسانُ بإنسانٍ آخر 💜🌻',
-          new Date(new Date().getTime() + 5 * 1000),
-        );
-
+        // navigate to home.
         setTimeout(() => {
           navigation.navigate('HomeScreen');
         }, 2000);

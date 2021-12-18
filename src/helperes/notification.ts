@@ -7,6 +7,7 @@
 
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import {LOCAL_NOTIFICATION_SOUND_NAME, QUOTES} from 'config';
+import {l} from 'i18n-js';
 import PushNotification from 'react-native-push-notification';
 
 /**
@@ -60,54 +61,65 @@ export function init() {
  * Schedule notifications for all the day.
  */
 export function scheduleNotificationsForAllTheDay() {
-  // schedule for '12:12 AM'
-  // const date12And12 = new Date();
-  // date12And12.setHours(24, 12, 0, 0);
-  // scheduleNotification(1, QUOTES[0].time, QUOTES[0].text, date12And12);
-  // schedule for '01:01 AM'
-  // const date1And1 = new Date();
-  // date1And1.setHours(1, 1, 0, 0);
-  // scheduleNotification(2, QUOTES[1].time, QUOTES[1].text, date1And1);
-  // // schedule for '02:02 AM'
-  // const date2And2 = new Date();
-  // date12And12.setHours(2, 2, 0, 0);
-  // scheduleNotification(3, QUOTES[2].time, QUOTES[2].text, date2And2);
-  // // schedule for '03:03 AM'
-  // const date3And3 = new Date();
-  // date12And12.setHours(3, 3, 0, 0);
-  // scheduleNotification(4, QUOTES[3].time, QUOTES[3].text, date3And3);
-  // // schedule for '04:04 AM'
-  // const date4And4 = new Date();
-  // date12And12.setHours(4, 4, 0, 0);
-  // scheduleNotification(5, QUOTES[4].time, QUOTES[4].text, date4And4);
-  // // schedule for '05:05 AM'
-  // const date5And5 = new Date();
-  // date12And12.setHours(5, 5, 0, 0);
-  // scheduleNotification(6, QUOTES[5].time, QUOTES[5].text, date5And5);
-  // // schedule for '06:06 AM'
-  // const date6And6 = new Date();
-  // date12And12.setHours(6, 6, 0, 0);
-  // scheduleNotification(7, QUOTES[6].time, QUOTES[6].text, date6And6);
-  // // schedule for '07:07 AM'
-  // const date7And7 = new Date();
-  // date12And12.setHours(7, 7, 0, 0);
-  // scheduleNotification(8, QUOTES[7].time, QUOTES[7].text, date7And7);
-  // // schedule for '08:08 AM'
-  // const date8And8 = new Date();
-  // date12And12.setHours(8, 8, 0, 0);
-  // scheduleNotification(9, QUOTES[8].time, QUOTES[8].text, date8And8);
-  // // schedule for '09:09 AM'
-  // const date9And9 = new Date();
-  // date12And12.setHours(9, 9, 0, 0);
-  // scheduleNotification(10, QUOTES[9].time, QUOTES[9].text, date9And9);
-  // // schedule for '10:10 AM'
-  // const date10And10 = new Date();
-  // date12And12.setHours(10, 10, 0, 0);
-  // scheduleNotification(11, QUOTES[10].time, QUOTES[10].text, date10And10);
-  // // schedule for '11:11 AM'
-  // const date11And11 = new Date();
-  // date12And12.setHours(11, 11, 0, 0);
-  // scheduleNotification(12, QUOTES[11].time, QUOTES[11].text, date11And11);
+  // schedule for '12:12 PM'
+  const date12And12 = new Date();
+  date12And12.setHours(22, 12, 0, 0);
+  scheduleNotification(0, QUOTES[0].time, QUOTES[0].text, date12And12);
+
+  // schedule for '01:01 PM'
+  const date1And1 = new Date();
+  date1And1.setHours(13, 1, 0, 0);
+  scheduleNotification(1, QUOTES[1].time, QUOTES[1].text, date1And1);
+
+  // schedule for '02:02 PM'
+  const date2And2 = new Date();
+  date2And2.setHours(14, 50, 0, 0);
+  scheduleNotification(2, QUOTES[2].time, QUOTES[2].text, date2And2);
+
+  // schedule for '03:03 PM'
+  const date3And3 = new Date();
+  date3And3.setHours(15, 3, 0, 0);
+  scheduleNotification(3, QUOTES[3].time, QUOTES[3].text, date3And3);
+
+  // schedule for '04:04 PM'
+  const date4And4 = new Date();
+  date4And4.setHours(16, 4, 0, 0);
+  scheduleNotification(4, QUOTES[4].time, QUOTES[4].text, date4And4);
+
+  // schedule for '05:05 PM'
+  const date5And5 = new Date();
+  date5And5.setHours(17, 5, 0, 0);
+  scheduleNotification(5, QUOTES[5].time, QUOTES[5].text, date5And5);
+
+  // schedule for '06:06 PM'
+  const date6And6 = new Date();
+  date6And6.setHours(18, 6, 0, 0);
+  scheduleNotification(6, QUOTES[6].time, QUOTES[6].text, date6And6);
+
+  // schedule for '07:07 PM'
+  const date7And7 = new Date();
+  date7And7.setHours(19, 7, 0, 0);
+  scheduleNotification(7, QUOTES[7].time, QUOTES[7].text, date7And7);
+
+  // schedule for '08:08 PM'
+  const date8And8 = new Date();
+  date8And8.setHours(20, 8, 0, 0);
+  scheduleNotification(8, QUOTES[8].time, QUOTES[8].text, date8And8);
+
+  // schedule for '09:09 PM'
+  const date9And9 = new Date();
+  date9And9.setHours(21, 9, 0, 0);
+  scheduleNotification(9, QUOTES[9].time, QUOTES[9].text, date9And9);
+
+  // schedule for '10:10 PM'
+  const date10And10 = new Date();
+  date10And10.setHours(22, 10, 0, 0);
+  scheduleNotification(10, QUOTES[10].time, QUOTES[10].text, date10And10);
+
+  // schedule for '11:11 PM'
+  const date11And11 = new Date();
+  date11And11.setHours(23, 11, 0, 0);
+  scheduleNotification(11, QUOTES[11].time, QUOTES[11].text, date11And11);
 }
 
 /**

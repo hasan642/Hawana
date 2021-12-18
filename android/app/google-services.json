@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "827502870482",
+    "project_id": "hawana-a8a1b",
+    "storage_bucket": "hawana-a8a1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827502870482:android:93be1fe72b9281b8a2920b",
+        "android_client_info": {
+          "package_name": "com.hawana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827502870482-mt8lt9v0dls34ducfeeh5nk0ls9fatmc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hawana",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "827502870482-g3otace9cpkih9pnrj8v12n7l4o6iev0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAM4Jf_8Z9NKW2HH8zemxn4j8BqKtFy5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827502870482-g3otace9cpkih9pnrj8v12n7l4o6iev0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "827502870482-4spdsmalv6j3ve8ldne68eb7ae5i2igq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hawana"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
