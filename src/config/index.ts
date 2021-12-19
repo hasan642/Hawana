@@ -9,6 +9,10 @@ import {Platform} from 'react-native';
 
 export const APP_NAME = 'HAWANA';
 export const LOCAL_NOTIFICATION_SOUND_NAME = 'notification-sound.mp3';
+export const ANDROID_NOTIFICATION_CHANNEL_NAME =
+  'hawana_android_notification_channel';
+export const ANDROID_NOTIFICATION_CHANNEL_ID =
+  'hawana_android_notification_channel_ID';
 // export const LOCAL_NOTIFICATION_SOUND_NAME = Platform.select({
 //   android: 'notificatiosound.mp3',
 //   ios: 'notification-sound.mp3',

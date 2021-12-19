@@ -6,8 +6,13 @@
  */
 
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
-import {LOCAL_NOTIFICATION_SOUND_NAME, QUOTES} from 'config';
-import {l} from 'i18n-js';
+import {
+  ANDROID_NOTIFICATION_CHANNEL_NAME,
+  LOCAL_NOTIFICATION_SOUND_NAME,
+  QUOTES,
+  ANDROID_NOTIFICATION_CHANNEL_ID,
+} from 'config';
+import {Platform} from 'react-native';
 import PushNotification from 'react-native-push-notification';
 
 /**
@@ -19,6 +24,9 @@ export function init() {
 
   // Must be outside of any component LifeCycle (such as `componentDidMount`).
   PushNotification.configure({
+    // just iOS needs permission.
+    requestPermissions: Platform.OS === 'ios',
+
     // (required) Called when a remote is received or opened, or local notification is opened
     onNotification: function (notification) {
       console.log('NOTIFICATION:', notification);
@@ -45,25 +53,28 @@ export function init() {
     // Should the initial notification be popped automatically
     // default: true
     popInitialNotification: true,
-
-    /**
-     * (optional) default: true
-     * - Specified if permissions (ios) and token (android and ios) will requested or not,
-     * - if not, you must call PushNotificationsHandler.requestPermissions() later
-     * - if you are not using remote notification or do not have Firebase installed, use this:
-     *     requestPermissions: Platform.OS === 'ios'
-     */
-    requestPermissions: true,
   });
+
+  // create Android channel.
+  PushNotification.createChannel(
+    {
+      channelId: ANDROID_NOTIFICATION_CHANNEL_NAME,
+      channelName: ANDROID_NOTIFICATION_CHANNEL_ID,
+    },
+    (created) => console.log(`createChannel returned '${created}'`), // (optional) callback returns whether the channel was created, false means it already existed.
+  );
 }
 
 /**
  * Schedule notifications for all the day.
  */
 export function scheduleNotificationsForAllTheDay() {
+  // cancel all previous notifications.
+  PushNotification.cancelAllLocalNotifications();
+
   // schedule for '12:12 PM'
   const date12And12 = new Date();
-  date12And12.setHours(22, 12, 0, 0);
+  date12And12.setHours(12, 12, 0, 0);
   scheduleNotification(0, QUOTES[0].time, QUOTES[0].text, date12And12);
 
   // schedule for '01:01 PM'
@@ -73,7 +84,7 @@ export function scheduleNotificationsForAllTheDay() {
 
   // schedule for '02:02 PM'
   const date2And2 = new Date();
-  date2And2.setHours(14, 50, 0, 0);
+  date2And2.setHours(14, 2, 0, 0);
   scheduleNotification(2, QUOTES[2].time, QUOTES[2].text, date2And2);
 
   // schedule for '03:03 PM'
@@ -84,6 +95,7 @@ export function scheduleNotificationsForAllTheDay() {
   // schedule for '04:04 PM'
   const date4And4 = new Date();
   date4And4.setHours(16, 4, 0, 0);
+  console.log('date4And4', date4And4);
   scheduleNotification(4, QUOTES[4].time, QUOTES[4].text, date4And4);
 
   // schedule for '05:05 PM'
@@ -103,7 +115,7 @@ export function scheduleNotificationsForAllTheDay() {
 
   // schedule for '08:08 PM'
   const date8And8 = new Date();
-  date8And8.setHours(20, 8, 0, 0);
+  date8And8.setHours(20, 54, 0, 0);
   scheduleNotification(8, QUOTES[8].time, QUOTES[8].text, date8And8);
 
   // schedule for '09:09 PM'
@@ -133,7 +145,8 @@ export function scheduleNotification(
 ) {
   PushNotification.localNotificationSchedule({
     date,
-    // repeatType: 'day',
+    repeatType: 'day',
+    repeatTime: 1,
 
     /* Android Only Properties */
     // channelId: 'default-channel-id',

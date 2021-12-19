@@ -7,7 +7,7 @@
 
 import React, {useEffect} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {Image, View} from 'react-native';
+import {Image, Platform, View} from 'react-native';
 import styles from './styles';
 import {Text} from 'components';
 import {useTheme} from 'react-native-paper';
@@ -33,15 +33,24 @@ function SplashScreen({navigation}: SplashScreenProps) {
 
   // navgates to home screen.
   useEffect(() => {
+    // register all scheduled and go to app.
+    function doTheMagic() {
+      // scedule notifications.
+      NotificationHelper.scheduleNotificationsForAllTheDay();
+
+      // navigate to home.
+      setTimeout(() => {
+        navigation.navigate('HomeScreen');
+      }, 2000);
+    }
+
+    if (Platform.OS === 'android') {
+      doTheMagic();
+      return;
+    }
     PushNotification.requestPermissions(['alert', 'badge', 'sound']).then(
       (_) => {
-        // scedule notifications.
-        NotificationHelper.scheduleNotificationsForAllTheDay();
-
-        // navigate to home.
-        setTimeout(() => {
-          navigation.navigate('HomeScreen');
-        }, 2000);
+        doTheMagic();
       },
     );
   }, []);
