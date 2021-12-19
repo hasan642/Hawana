@@ -145,8 +145,8 @@ export function scheduleNotification(
 ) {
   PushNotification.localNotificationSchedule({
     date,
-    repeatType: 'day',
-    repeatTime: 1,
+    // repeatType: 'day',
+    // repeatTime: 1,
 
     /* Android Only Properties */
     // channelId: 'default-channel-id',
