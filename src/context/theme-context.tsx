@@ -5,44 +5,39 @@
  * created at: 19/02/2021
  */
 
-import React, {
-    createContext,
-    useState,
-    Context
-} from 'react';
+import React, { createContext, useState } from 'react';
 
 // type checking.
 interface ThemeContextProviderProps {
-    children: any;
-};
+  children: any;
+}
 type SelectedTheme = 'DARK' | 'LIGHT';
 
 // type checking.
 export interface IThemeContextProvider {
-    selectedTheme: SelectedTheme;
-    setSelectedTheme: (selectedTheme: SelectedTheme) => void;
-};
+  selectedTheme: SelectedTheme;
+  setSelectedTheme: (selectedTheme: SelectedTheme) => void;
+}
 
 // create the context
 export const ThemeContext = createContext({
-    selectedTheme: 'LIGHT',
-    setSelectedTheme: (theme: SelectedTheme) => { }
+  selectedTheme: 'LIGHT',
+  setSelectedTheme: (theme: SelectedTheme) => {},
 });
 
 /**
  * A function component that shows a theme context provider.
  */
 const ThemeContextProvider = ({ children }: ThemeContextProviderProps) => {
+  // state.
+  const [selectedTheme, setSelectedTheme] = useState<SelectedTheme>('LIGHT');
 
-    // state.
-    const [selectedTheme, setSelectedTheme] = useState<SelectedTheme>('LIGHT');
-
-    return (
-        <ThemeContext.Provider value={{ selectedTheme, setSelectedTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
-}
+  return (
+    <ThemeContext.Provider value={{ selectedTheme, setSelectedTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
 // export as default.
 export default ThemeContextProvider;

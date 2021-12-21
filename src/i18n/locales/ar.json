@@ -1,10 +1,13 @@
 {
-    "common": {},
+    "common": {
+        "phoneNumber": "رقم الهاتف",
+        "password": "كلمة المرور"
+    },
     "splashScreen": {
         "writeQuotes": " “ أكتب اقتباساتك ” "
     },
     "loginScreen": {
         "welcome": "أهلاُ بك مجددأ",
-        "enterDataToContinue": "ادخل بياناتك لتسجيل الدخول"
+        "enterDataToContinue": "ادخل بياناتك لتسجيل الدخول",
     }
 }

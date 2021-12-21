@@ -1,5 +1,8 @@
 {
-    "common": {},
+    "common": {
+        "phoneNumber": "Phone number",
+        "password": "Password"
+    },
     "splashScreen": {
         "writeQuotes": " “ write your quotes ” "
     },

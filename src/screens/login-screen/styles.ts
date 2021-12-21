@@ -5,11 +5,11 @@
  * created at: 21/12/2020
  */
 
-import {StyleSheet} from 'react-native';
-import {COLOR} from 'theme';
+import { StyleSheet } from 'react-native';
+import { COLOR } from 'theme';
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: COLOR.primary},
+  container: { flex: 1, backgroundColor: COLOR.primary },
   wlc: {
     color: COLOR.dark,
     fontWeight: 'bold',
@@ -20,7 +20,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 4,
   },
-  internalContainer: {paddingHorizontal: 32},
+  internalContainer: { paddingHorizontal: 32 },
+  inputsHolder: {
+    marginTop: 32,
+  },
 });
 
 export default styles;
