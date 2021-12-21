@@ -31,7 +31,7 @@ interface FormData {
 /**
  * A fncction ccomponne that shows a login screen.
  */
-function LoginScreen(p: LoginScreenProps) {
+function LoginScreen({ navigation }: LoginScreenProps) {
   // use top safe area inset.
   const { top: topInset } = useSafeAreaInsets();
 
@@ -66,7 +66,9 @@ function LoginScreen(p: LoginScreenProps) {
   /**
    * Handles creates new account press.
    */
-  const createNewAccPress = () => {};
+  const createNewAccPress = () => {
+    navigation.navigate('SignupScreen');
+  };
 
   /**
    * Focuses to password input.
@@ -82,6 +84,13 @@ function LoginScreen(p: LoginScreenProps) {
     setIsPasswordVisible(v => !v);
   };
 
+  /**
+   * check if btn enabled.
+   */
+  const isBtnEnabled = () => {
+    return formData.phoneNumber && formData.password;
+  };
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -92,6 +101,7 @@ function LoginScreen(p: LoginScreenProps) {
 
           <View style={styles.inputsHolder}>
             <TextField
+              KeyboardType={'phone-pad'}
               onChangeText={handleOnChnagPhoneNumber}
               value={formData.phoneNumber}
               label={translate('common.phoneNumber')}
@@ -113,6 +123,7 @@ function LoginScreen(p: LoginScreenProps) {
             containerStyle={commonStyles.marginT40}
             handlePress={handleLogin}
             title={translate('loginScreen.signin')}
+            disabled={!isBtnEnabled()}
           />
 
           <Pressable onPress={createNewAccPress} style={styles.signUpContainer}>

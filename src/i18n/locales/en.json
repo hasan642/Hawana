@@ -11,5 +11,8 @@
         "enterDataToContinue": "Enter your credentials to continue",
         "signin": "Log in",
         "createNewAcc": "Don't have account? create now!"
+    },
+    "signupScreen": {
+        "signup": "Signup"
     }
 }

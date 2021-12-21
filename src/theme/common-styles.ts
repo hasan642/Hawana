@@ -6,12 +6,15 @@
  */
 
 import { StyleSheet } from 'react-native';
+import { COLOR } from '.';
 
 const styles = StyleSheet.create({
   // margins
   marginT16: { marginTop: 16 },
   marginT32: { marginTop: 32 },
   marginT40: { marginTop: 40 },
+  // colors
+  transparentBG: { backgroundColor: COLOR.transparent },
 });
 
 export default styles;

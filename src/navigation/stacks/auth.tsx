@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
-import {LoginScreen} from 'screens';
-import {createStackNavigator} from '@react-navigation/stack';
-import {AllStackNavParams} from 'navigation/types';
+import { LoginScreen, SignupScreen } from 'screens';
+import { createStackNavigator } from '@react-navigation/stack';
+import { AllStackNavParams } from 'navigation/types';
+import { COMMON_NAV_SCREEN_OPTIONS } from 'navigation/constants';
 
 // create auth stack navigator.
 const AuthStack = createStackNavigator<AllStackNavParams>();
@@ -18,14 +19,9 @@ const AuthStack = createStackNavigator<AllStackNavParams>();
  */
 function AuthStackNavigator() {
   return (
-    <AuthStack.Navigator initialRouteName={'SplashScreen'}>
-      <AuthStack.Screen
-        name={'LoginScreen'}
-        component={LoginScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
+    <AuthStack.Navigator screenOptions={COMMON_NAV_SCREEN_OPTIONS}>
+      <AuthStack.Screen name={'LoginScreen'} component={LoginScreen} />
+      <AuthStack.Screen name={'SignupScreen'} component={SignupScreen} />
     </AuthStack.Navigator>
   );
 }

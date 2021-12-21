@@ -14,5 +14,6 @@ export type AllStackNavParams = {
   // screens.
   SplashScreen: any;
   LoginScreen: any;
+  SignupScreen: any;
   HomeScreen: any;
 };

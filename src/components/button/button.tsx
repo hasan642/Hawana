@@ -18,12 +18,19 @@ interface ButtonProps {
   // optional props.
   containerStyle?: ViewStyle;
   titleStyle?: TextStyle;
+  disabled?: boolean;
 }
 
 /**
  * A function component that shows button.
  */
-function ButtonComponent({ title, handlePress, containerStyle, titleStyle }: ButtonProps) {
+function ButtonComponent({
+  title,
+  handlePress,
+  containerStyle,
+  titleStyle,
+  disabled,
+}: ButtonProps) {
   return (
     <Button
       {...({} as any)}
@@ -32,6 +39,7 @@ function ButtonComponent({ title, handlePress, containerStyle, titleStyle }: But
       mode='contained'
       onPress={handlePress}
       labelStyle={[styles.defaultLabel, titleStyle]}
+      disabled={disabled}
     >
       {title}
     </Button>

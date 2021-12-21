@@ -6,7 +6,7 @@
  */
 
 import React, { forwardRef } from 'react';
-import { View, ViewStyle } from 'react-native';
+import { KeyboardTypeOptions, View, ViewStyle } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { textFieldTheme } from './styles';
 
@@ -22,6 +22,7 @@ interface TextFieldProps {
   handleSubmitEditing?: () => void;
   rightIconName?: string;
   handleRightIconPress?: () => void;
+  KeyboardType?: KeyboardTypeOptions;
 }
 
 /**
@@ -37,6 +38,7 @@ function TextField(
     handleSubmitEditing,
     rightIconName,
     handleRightIconPress,
+    KeyboardType = 'default',
   }: TextFieldProps,
   ref: any
 ) {
@@ -51,6 +53,7 @@ function TextField(
         theme={textFieldTheme}
         onSubmitEditing={handleSubmitEditing}
         ref={ref}
+        keyboardType={KeyboardType}
         right={
           rightIconName && <TextInput.Icon onPress={handleRightIconPress} name={rightIconName} />
         }
