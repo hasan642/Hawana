@@ -2,5 +2,9 @@
     "common": {},
     "splashScreen": {
         "writeQuotes": " “ أكتب اقتباساتك ” "
+    },
+    "loginScreen": {
+        "welcome": "أهلاُ بك مجددأ",
+        "enterDataToContinue": "ادخل بياناتك لتسجيل الدخول"
     }
 }

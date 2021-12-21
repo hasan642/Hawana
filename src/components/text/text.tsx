@@ -6,41 +6,27 @@
  */
 
 import React from 'react';
-import {
-    Text as RnTxt,
-    TextStyle
-} from 'react-native';
-import { useTheme } from 'react-native-paper';
+import {Text as RnTxt, TextStyle} from 'react-native';
+import {useTheme} from 'react-native-paper';
 import styles from './styles';
 
 // type checking.
 interface TextProps {
-    children: string;
-    style?: TextStyle;
-};
+  children: string;
+  style?: TextStyle | TextStyle[];
+}
 
 /**
  * A function component that shows a text.
  */
-function Text({
-    children,
-    style: overrideTextStyle
-}: TextProps) {
+function Text({children, style: overrideTextStyle}: TextProps) {
+  // use the paper theme.
+  const {colors} = useTheme();
 
-    // use the paper theme.
-    const { colors } = useTheme();
-
-    return (
-        <RnTxt style={
-            [
-                { color: colors.text },
-                overrideTextStyle,
-            ]
-        }>
-            {children}
-        </RnTxt>
-    );
-};
+  return (
+    <RnTxt style={[{color: colors.text}, overrideTextStyle]}>{children}</RnTxt>
+  );
+}
 
 // export as default.
 export default Text;

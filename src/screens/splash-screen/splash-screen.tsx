@@ -40,7 +40,7 @@ function SplashScreen({navigation}: SplashScreenProps) {
 
       // navigate to home.
       setTimeout(() => {
-        navigation.navigate('HomeScreen');
+        // navigation.navigate('LoginScreen');
       }, 2000);
     }
 

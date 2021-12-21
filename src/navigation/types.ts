@@ -7,6 +7,7 @@
 
 // all screen props here.
 export type AllStackNavParams = {
-    SplashScreen: any;
-    HomeScreen: any;
+  SplashScreen: any;
+  LoginScreen: any;
+  HomeScreen: any;
 };

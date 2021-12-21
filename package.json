@@ -6,6 +6,7 @@
     "a": "npx react-native run-android",
     "i": "npx react-native run-ios",
     "s": "npx react-native start",
+    "s-r": "npx react-native start --reset-cache",
     "pod": "npx pod-install ios",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"

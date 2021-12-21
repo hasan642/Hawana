@@ -2,5 +2,9 @@
     "common": {},
     "splashScreen": {
         "writeQuotes": " “ write your quotes ” "
+    },
+    "loginScreen": {
+        "welcome": "Welcome Back",
+        "enterDataToContinue": "Enter your credentials to continue"
     }
 }

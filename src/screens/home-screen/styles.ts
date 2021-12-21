@@ -1,5 +1,5 @@
 /**
- * SplashScreen.tsx
+ * styles.ts
  * developed by Hasan Alawneh.
  * A file that shows a SplashScreen styles.
  * created at: 21/12/2020

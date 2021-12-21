@@ -95,7 +95,6 @@ export function scheduleNotificationsForAllTheDay() {
   // schedule for '04:04 PM'
   const date4And4 = new Date();
   date4And4.setHours(16, 4, 0, 0);
-  console.log('date4And4', date4And4);
   scheduleNotification(4, QUOTES[4].time, QUOTES[4].text, date4And4);
 
   // schedule for '05:05 PM'
@@ -115,7 +114,7 @@ export function scheduleNotificationsForAllTheDay() {
 
   // schedule for '08:08 PM'
   const date8And8 = new Date();
-  date8And8.setHours(20, 54, 0, 0);
+  date8And8.setHours(20, 8, 0, 0);
   scheduleNotification(8, QUOTES[8].time, QUOTES[8].text, date8And8);
 
   // schedule for '09:09 PM'

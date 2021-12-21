@@ -6,7 +6,7 @@
  */
 
 import React, {useEffect, useLayoutEffect} from 'react';
-import {FlatList, Image, TouchableOpacity, View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {AllStackNavParams} from 'navigation';
 import {StackNavigationProp} from '@react-navigation/stack';
 import styles from './styles';
@@ -14,7 +14,7 @@ import {Text} from 'components';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {COLOR} from 'theme';
 import {changeLanguage} from 'i18n';
-import {APP_NAME, QUOTES} from 'config';
+import {QUOTES} from 'config';
 
 /**
  * type checking.
