@@ -8,6 +8,8 @@
     },
     "loginScreen": {
         "welcome": "Welcome Back",
-        "enterDataToContinue": "Enter your credentials to continue"
+        "enterDataToContinue": "Enter your credentials to continue",
+        "signin": "Log in",
+        "createNewAcc": "Don't have account? create now!"
     }
 }

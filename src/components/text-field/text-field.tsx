@@ -5,10 +5,10 @@
  * created at: 21/12/2021
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import styles, { textFieldTheme } from './styles';
+import { textFieldTheme } from './styles';
 
 // type checking.
 interface TextFieldProps {
@@ -19,18 +19,23 @@ interface TextFieldProps {
   // optional props.
   containerStyle?: ViewStyle;
   secureTextEntry?: boolean;
+  handleSubmitEditing?: () => void;
 }
 
 /**
  * A function component that shows a texxt field.
  */
-function TextField({
-  label,
-  value,
-  onChangeText,
-  secureTextEntry,
-  containerStyle,
-}: TextFieldProps) {
+function TextField(
+  {
+    label,
+    value,
+    onChangeText,
+    secureTextEntry,
+    containerStyle,
+    handleSubmitEditing,
+  }: TextFieldProps,
+  ref: any
+) {
   return (
     <View style={containerStyle}>
       <TextInput
@@ -40,10 +45,12 @@ function TextField({
         value={value}
         onChangeText={onChangeText}
         theme={textFieldTheme}
+        onSubmitEditing={handleSubmitEditing}
+        ref={ref}
       />
     </View>
   );
 }
 
 // export as default.
-export default TextField;
+export default forwardRef(TextField);

@@ -9,7 +9,7 @@ import { StyleSheet } from 'react-native';
 import { COLOR } from 'theme';
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: COLOR.primary },
+  container: { flex: 1, backgroundColor: COLOR.light },
   wlc: {
     color: COLOR.dark,
     fontWeight: 'bold',
@@ -20,9 +20,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 4,
   },
-  internalContainer: { paddingHorizontal: 32 },
+  internalContainer: { paddingHorizontal: 32, marginTop: 32 },
   inputsHolder: {
-    marginTop: 32,
+    marginTop: 16,
+  },
+  signUpContainer: {
+    marginTop: 8,
+  },
+  signupTxt: {
+    textAlign: 'center',
   },
 });
 

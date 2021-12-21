@@ -9,5 +9,7 @@
     "loginScreen": {
         "welcome": "أهلاُ بك مجددأ",
         "enterDataToContinue": "ادخل بياناتك لتسجيل الدخول",
+        "signin": "تسجيل الدخول",
+        "createNewAcc": "ليس لديك حساب؟ سجل الأن"
     }
 }

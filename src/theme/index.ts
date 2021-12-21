@@ -8,3 +8,4 @@
 export { default as COLOR } from './color';
 export { default as THEME } from './paper-theme';
 export { default as LAYOUT } from './layout';
+export { default as commonStyles } from './common-styles';
