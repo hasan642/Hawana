@@ -15,6 +15,7 @@ import { AllStackNavParams } from 'navigation';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { commonStyles } from 'theme';
 import styles from './styles';
+import ADIcon from 'react-native-vector-icons/AntDesign';
 
 /**
  * type checking.
@@ -39,6 +40,7 @@ function LoginScreen(p: LoginScreenProps) {
 
   // state.
   const [formData, setFormData] = useState<FormData>({ phoneNumber: '', password: '' });
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   /**
    * Handles on chnage phone number.
@@ -73,13 +75,19 @@ function LoginScreen(p: LoginScreenProps) {
     passwordRef.current?.focus();
   };
 
+  /**
+   * Handles icon eye press.
+   */
+  const handleEyeIconPress = () => {
+    setIsPasswordVisible(v => !v);
+  };
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
+        <ADIcon style={[styles.userIcon, { marginTop: topInset }]} name={'user'} />
         <View style={styles.internalContainer}>
-          <Text style={[styles.wlc, { marginTop: topInset }]}>
-            {translate('loginScreen.welcome')}
-          </Text>
+          <Text style={styles.wlc}>{translate('loginScreen.welcome')}</Text>
           <Text style={styles.enterData}>{translate('loginScreen.enterDataToContinue')}</Text>
 
           <View style={styles.inputsHolder}>
@@ -92,7 +100,9 @@ function LoginScreen(p: LoginScreenProps) {
             <TextField
               value={formData.password}
               onChangeText={handleOnChnagPassword}
-              secureTextEntry
+              secureTextEntry={!isPasswordVisible}
+              rightIconName={isPasswordVisible ? 'eye' : 'eye-off'}
+              handleRightIconPress={handleEyeIconPress}
               label={translate('common.password')}
               containerStyle={commonStyles.marginT16}
               ref={passwordRef}

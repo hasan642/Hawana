@@ -20,6 +20,8 @@ interface TextFieldProps {
   containerStyle?: ViewStyle;
   secureTextEntry?: boolean;
   handleSubmitEditing?: () => void;
+  rightIconName?: string;
+  handleRightIconPress?: () => void;
 }
 
 /**
@@ -33,6 +35,8 @@ function TextField(
     secureTextEntry,
     containerStyle,
     handleSubmitEditing,
+    rightIconName,
+    handleRightIconPress,
   }: TextFieldProps,
   ref: any
 ) {
@@ -47,6 +51,9 @@ function TextField(
         theme={textFieldTheme}
         onSubmitEditing={handleSubmitEditing}
         ref={ref}
+        right={
+          rightIconName && <TextInput.Icon onPress={handleRightIconPress} name={rightIconName} />
+        }
       />
     </View>
   );

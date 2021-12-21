@@ -6,21 +6,24 @@
  */
 
 import { StyleSheet } from 'react-native';
-import { COLOR } from 'theme';
+import { COLOR, LAYOUT } from 'theme';
+
+// cconstants.
+const imgSize = LAYOUT.window.width / 4;
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLOR.light },
   wlc: {
     color: COLOR.dark,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 24,
   },
   enterData: {
     color: COLOR.dark,
-    fontSize: 14,
+    fontSize: 16,
     marginTop: 4,
   },
-  internalContainer: { paddingHorizontal: 32, marginTop: 32 },
+  internalContainer: { paddingHorizontal: 32, marginTop: 64 },
   inputsHolder: {
     marginTop: 16,
   },
@@ -29,6 +32,11 @@ const styles = StyleSheet.create({
   },
   signupTxt: {
     textAlign: 'center',
+  },
+  userIcon: {
+    alignSelf: 'center',
+    fontSize: 100,
+    color: COLOR.primary,
   },
 });
 
