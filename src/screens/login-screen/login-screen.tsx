@@ -13,6 +13,7 @@ import {Text} from 'components';
 import {translate} from 'i18n';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {AllStackNavParams} from 'navigation';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 /**
  * type checking.
@@ -30,12 +31,16 @@ function LoginScreen(p: LoginScreenProps) {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.wlc, {marginTop: topInset}]}>
-        {translate('loginScreen.welcome')}
-      </Text>
-      <Text style={styles.enterData}>
-        {translate('loginScreen.enterDataToContinue')}
-      </Text>
+      <KeyboardAwareScrollView>
+        <View style={styles.internalContainer}>
+          <Text style={[styles.wlc, {marginTop: topInset}]}>
+            {translate('loginScreen.welcome')}
+          </Text>
+          <Text style={styles.enterData}>
+            {translate('loginScreen.enterDataToContinue')}
+          </Text>
+        </View>
+      </KeyboardAwareScrollView>
     </View>
   );
 }

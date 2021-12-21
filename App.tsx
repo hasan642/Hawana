@@ -1,16 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen, SplashScreen} from 'screens';
 import {Provider as PaperProvider} from 'react-native-paper';
-import {COLOR, THEME} from 'theme';
+import {THEME} from 'theme';
 import {ThemeContextState, ThemeContext, IThemeContextProvider} from 'context';
-import {AllStackNavParams} from 'navigation/types';
 import {setI18nConfig} from 'i18n';
-import {APP_NAME} from 'config';
-import {Text} from 'components';
-// create the main stack.
-const MainStack = createStackNavigator<AllStackNavParams>();
+import {MainStackNavigator} from 'navigation/stacks';
 
 /**
  * A main function component that shows an entire app.
@@ -44,29 +37,7 @@ const InternalApp = () => {
 
   return (
     <PaperProvider theme={THEME[selectedTheme]}>
-      <NavigationContainer>
-        <MainStack.Navigator initialRouteName={'SplashScreen'}>
-          <MainStack.Screen
-            name={'SplashScreen'}
-            component={SplashScreen}
-            options={{
-              headerShown: false,
-            }}
-          />
-
-          <MainStack.Screen
-            name={'HomeScreen'}
-            component={HomeScreen}
-            options={{
-              headerTitle: () => (
-                <Text style={{color: COLOR.light, fontSize: 32}}>
-                  {'Hawana'}
-                </Text>
-              ),
-            }}
-          />
-        </MainStack.Navigator>
-      </NavigationContainer>
+      <MainStackNavigator />
     </PaperProvider>
   );
 };

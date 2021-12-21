@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
   enterData: {
     color: COLOR.dark,
     fontSize: 14,
+    marginTop: 4,
   },
+  internalContainer: {paddingHorizontal: 32},
 });
 
 export default styles;
