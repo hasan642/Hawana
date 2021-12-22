@@ -4,6 +4,7 @@ import { THEME } from 'theme';
 import { ThemeContextState, ThemeContext, IThemeContextProvider } from 'context';
 import { setI18nConfig } from 'i18n';
 import { MainStackNavigator } from 'navigation/stacks';
+import { NotificationListener } from 'components';
 
 /**
  * A main function component that shows an entire app.
@@ -36,6 +37,7 @@ const InternalApp = () => {
   return (
     <PaperProvider theme={THEME[selectedTheme]}>
       <MainStackNavigator />
+      <NotificationListener />
     </PaperProvider>
   );
 };

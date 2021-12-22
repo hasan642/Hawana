@@ -16,6 +16,7 @@ import { translate } from 'i18n';
 import { commonStyles } from 'theme';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
+import { Api } from 'api';
 
 // type checking.
 interface SignupScreenProps {
@@ -71,7 +72,10 @@ function SignupScreen({ navigation }: SignupScreenProps) {
   /**
    * Handles signup.
    */
-  const handleSignup = () => {};
+  const handleSignup = () => {
+    const { phoneNumber, password } = formData;
+    Api.signup({ phoneNumber, password });
+  };
 
   return (
     <View style={styles.container}>

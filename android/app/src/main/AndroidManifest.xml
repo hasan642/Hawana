@@ -51,6 +51,11 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+            <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/primary-app-color"
+            tools:replace="android:resource" />
     </application>
 
 </manifest>

@@ -9,7 +9,7 @@
 #import <React/RCTRootView.h>
 #import <UserNotifications/UserNotifications.h>
 #import <RNCPushNotificationIOS.h>
-//@import Firebase;
+#import <Firebase.h>
 
 @implementation AppDelegate
 
@@ -21,7 +21,7 @@
   center.delegate = self;
   
   // configure firebaqse
-//  [FIRApp configure];
+  [FIRApp configure];
   
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   
