@@ -20,17 +20,24 @@ interface ErrorCommon {
 
 // signup api.
 export interface SignupPayload {
-  phoneNumber: string;
+  phone_number: string;
   password: string;
 }
-interface ISignup extends SuccessCommon {}
-export type ISignupResponse = Promise<ISignup | ErrorCommon>;
+export type ISignupResponse = Promise<SuccessCommon | ErrorCommon>;
 
 // login api.
 export interface LoginPayload {
-  phoneNumber: string;
+  phone_number: string;
   password: string;
   fcm_token: string;
+  last_platform_login: string;
 }
-interface ISignup extends SuccessCommon {}
-export type ILoginResponse = Promise<ISignup | ErrorCommon>;
+export type ILoginResponse = Promise<SuccessCommon | ErrorCommon>;
+
+// scheduleNotification api.
+export interface ScheduleNotificationPayload {
+  phone_number: string;
+  title: string;
+  body: string;
+}
+export type IScheduleNotificationResponse = Promise<SuccessCommon | ErrorCommon>;

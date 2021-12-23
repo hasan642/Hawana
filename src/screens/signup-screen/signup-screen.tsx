@@ -78,7 +78,7 @@ function SignupScreen({ navigation }: SignupScreenProps) {
   const handleSignup = () => {
     setIsLoadning(true);
     const { phoneNumber, password } = formData;
-    Api.signup({ phoneNumber, password }).then(r => {
+    Api.signup({ phone_number: phoneNumber, password }).then(r => {
       if (r.kind === ResponseKind.ok) {
         setIsLoadning(false);
       } else {

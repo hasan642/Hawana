@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { Pressable, View } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, ScreenLoader, Text, TextField } from 'components';
 import { translate } from 'i18n';
@@ -16,7 +16,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { commonStyles } from 'theme';
 import styles from './styles';
 import ADIcon from 'react-native-vector-icons/AntDesign';
-import Toast from 'react-native-toast-message';
 import { General, StorageHelper } from 'helperes';
 import { Api, ApiTypes } from 'api';
 
@@ -67,11 +66,11 @@ function LoginScreen({ navigation }: LoginScreenProps) {
     setIsloading(true);
     // get and send fcm token to the user.
     const tokenFromStorage = await StorageHelper.get('@fcmToken');
-    console.log('tokenFromStorage', tokenFromStorage);
     Api.login({
-      phoneNumber: formData.phoneNumber,
+      phone_number: formData.phoneNumber,
       password: formData.password,
       fcm_token: tokenFromStorage,
+      last_platform_login: Platform.OS,
     }).then(r => {
       if (r.kind === ApiTypes.ResponseKind.ok) {
         setIsloading(false);
