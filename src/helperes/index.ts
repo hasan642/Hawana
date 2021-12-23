@@ -5,6 +5,7 @@
  * created at: 29/07/2021
  */
 import * as NotificationHelper from './notification';
+import * as General from './general';
 
-export {default as StorageHelper} from './storage/storage';
-export {NotificationHelper};
+export { default as StorageHelper } from './storage/storage';
+export { NotificationHelper, General };

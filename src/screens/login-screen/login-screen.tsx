@@ -8,7 +8,7 @@
 import React, { useState, useRef } from 'react';
 import { Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Button, Text, TextField } from 'components';
+import { Button, ScreenLoader, Text, TextField } from 'components';
 import { translate } from 'i18n';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
@@ -16,6 +16,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { commonStyles } from 'theme';
 import styles from './styles';
 import ADIcon from 'react-native-vector-icons/AntDesign';
+import Toast from 'react-native-toast-message';
+import { General } from 'helperes';
 
 /**
  * type checking.
@@ -61,6 +63,7 @@ function LoginScreen({ navigation }: LoginScreenProps) {
    */
   const handleLogin = () => {
     console.log('handle login');
+    General.showToast('dddd', 'success');
   };
 
   /**

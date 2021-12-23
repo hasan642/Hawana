@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
   marginT40: { marginTop: 40 },
   // colors
   transparentBG: { backgroundColor: COLOR.transparent },
+  // layout.
+  noWidth: { width: undefined },
 });
 
 export default styles;

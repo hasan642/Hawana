@@ -11,6 +11,9 @@ const color = Object.freeze({
   primary: '#ff3e51',
   pampas: '#F0EEE9',
   transparent: 'rgba(0,0,0,0)',
+  transparent1: 'rgba(0,0,0,0.5)',
+  success: '#4BB543',
+  danger: 'RGB(255,14,14)',
 });
 
 // export as default.

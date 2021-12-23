@@ -5,6 +5,7 @@ import { ThemeContextState, ThemeContext, IThemeContextProvider } from 'context'
 import { setI18nConfig } from 'i18n';
 import { MainStackNavigator } from 'navigation/stacks';
 import { NotificationListener } from 'components';
+import Toast from 'react-native-toast-message';
 
 /**
  * A main function component that shows an entire app.
@@ -38,6 +39,7 @@ const InternalApp = () => {
     <PaperProvider theme={THEME[selectedTheme]}>
       <MainStackNavigator />
       <NotificationListener />
+      <Toast position='bottom' />
     </PaperProvider>
   );
 };

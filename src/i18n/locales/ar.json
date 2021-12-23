@@ -13,6 +13,7 @@
         "createNewAcc": "ليس لديك حساب؟ سجل الأن"
     },
     "signupScreen": {
-        "signup": "إنشاء حساب"
+        "signup": "إنشاء حساب",
+        "signupSuccess": "تم انشاء الحساب بنجاح"
     }
 }

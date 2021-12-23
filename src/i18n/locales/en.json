@@ -13,6 +13,7 @@
         "createNewAcc": "Don't have account? create now!"
     },
     "signupScreen": {
-        "signup": "Signup"
+        "signup": "Signup",
+        "signupSuccess": "Signup success"
     }
 }

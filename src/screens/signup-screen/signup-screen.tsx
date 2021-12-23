@@ -11,12 +11,13 @@ import styles from './styles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import ADIcon from 'react-native-vector-icons/AntDesign';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Button, Header, TextField } from 'components';
+import { Button, Header, ScreenLoader, TextField } from 'components';
 import { translate } from 'i18n';
 import { commonStyles } from 'theme';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
 import { Api } from 'api';
+import { ResponseKind } from 'api/api.types';
 
 // type checking.
 interface SignupScreenProps {
@@ -40,6 +41,8 @@ function SignupScreen({ navigation }: SignupScreenProps) {
   // state.
   const [formData, setFormData] = useState<FormData>({ phoneNumber: '', password: '' });
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [isLoadning, setIsLoadning] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   /**
    * Handles on chnage phone number.
@@ -73,8 +76,16 @@ function SignupScreen({ navigation }: SignupScreenProps) {
    * Handles signup.
    */
   const handleSignup = () => {
+    setIsLoadning(true);
     const { phoneNumber, password } = formData;
-    Api.signup({ phoneNumber, password });
+    Api.signup({ phoneNumber, password }).then(r => {
+      if (r.kind === ResponseKind.ok) {
+        setIsLoadning(false);
+      } else {
+        setIsLoadning(false);
+        setErrorMsg(r.error);
+      }
+    });
   };
 
   return (
@@ -110,6 +121,8 @@ function SignupScreen({ navigation }: SignupScreenProps) {
           />
         </View>
       </KeyboardAwareScrollView>
+
+      {isLoadning && <ScreenLoader />}
     </View>
   );
 }
