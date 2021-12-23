@@ -10,7 +10,8 @@
         "welcome": "أهلاُ بك مجددأ",
         "enterDataToContinue": "ادخل بياناتك لتسجيل الدخول",
         "signin": "تسجيل الدخول",
-        "createNewAcc": "ليس لديك حساب؟ سجل الأن"
+        "createNewAcc": "ليس لديك حساب؟ سجل الأن",
+        "loginError": "دخول غير صحيح"
     },
     "signupScreen": {
         "signup": "إنشاء حساب",

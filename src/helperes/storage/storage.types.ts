@@ -6,9 +6,10 @@
  */
 
 // storage keys.
-export type StorageKeys = '@language';
+export type StorageKeys = '@language' | '@fcmToken';
 
 // export all.
 export type SaveStorageParamList = {
-    ['@language']: string;
+  ['@language']: string;
+  ['@fcmToken']: string;
 };

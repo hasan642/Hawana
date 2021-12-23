@@ -17,7 +17,8 @@ import { commonStyles } from 'theme';
 import styles from './styles';
 import ADIcon from 'react-native-vector-icons/AntDesign';
 import Toast from 'react-native-toast-message';
-import { General } from 'helperes';
+import { General, StorageHelper } from 'helperes';
+import { Api, ApiTypes } from 'api';
 
 /**
  * type checking.
@@ -43,6 +44,7 @@ function LoginScreen({ navigation }: LoginScreenProps) {
   // state.
   const [formData, setFormData] = useState<FormData>({ phoneNumber: '', password: '' });
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [isloading, setIsloading] = useState<boolean>(false);
 
   /**
    * Handles on chnage phone number.
@@ -61,9 +63,23 @@ function LoginScreen({ navigation }: LoginScreenProps) {
   /**
    * Handles login press.
    */
-  const handleLogin = () => {
-    console.log('handle login');
-    General.showToast('dddd', 'success');
+  const handleLogin = async () => {
+    setIsloading(true);
+    // get and send fcm token to the user.
+    const tokenFromStorage = await StorageHelper.get('@fcmToken');
+    console.log('tokenFromStorage', tokenFromStorage);
+    Api.login({
+      phoneNumber: formData.phoneNumber,
+      password: formData.password,
+      fcm_token: tokenFromStorage,
+    }).then(r => {
+      if (r.kind === ApiTypes.ResponseKind.ok) {
+        setIsloading(false);
+      } else {
+        setIsloading(false);
+        General.showToast(translate('loginScreen.loginError'), 'error');
+      }
+    });
   };
 
   /**
@@ -134,6 +150,8 @@ function LoginScreen({ navigation }: LoginScreenProps) {
           </Pressable>
         </View>
       </KeyboardAwareScrollView>
+
+      {isloading && <ScreenLoader />}
     </View>
   );
 }

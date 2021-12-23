@@ -5,17 +5,17 @@
  * created at: 21/12/2020
  */
 
-import React, {useEffect} from 'react';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {Image, Platform, View} from 'react-native';
+import React, { useEffect } from 'react';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { Image, Platform, View } from 'react-native';
 import styles from './styles';
-import {Text} from 'components';
-import {useTheme} from 'react-native-paper';
-import {AllStackNavParams} from 'navigation/types';
-import {APP_NAME} from 'config';
-import {translate} from 'i18n';
+import { Text } from 'components';
+import { useTheme } from 'react-native-paper';
+import { AllStackNavParams } from 'navigation/types';
+import { APP_NAME } from 'config';
+import { translate } from 'i18n';
 import PushNotification from 'react-native-push-notification';
-import {NotificationHelper} from 'helperes';
+import { NotificationHelper } from 'helperes';
 
 /**
  * type checking
@@ -27,9 +27,9 @@ interface SplashScreenProps {
 /**
  * A function component that shows a SplashScreen.
  */
-function SplashScreen({navigation}: SplashScreenProps) {
+function SplashScreen({ navigation }: SplashScreenProps) {
   // use paper theme.
-  const {colors: themeColors} = useTheme();
+  const { colors: themeColors } = useTheme();
 
   // navgates to home screen.
   useEffect(() => {
@@ -48,20 +48,18 @@ function SplashScreen({navigation}: SplashScreenProps) {
       doTheMagic();
       return;
     }
-    PushNotification.requestPermissions(['alert', 'badge', 'sound']).then(
-      (_) => {
-        doTheMagic();
-      },
-    );
+    PushNotification.requestPermissions(['alert', 'badge', 'sound']).then(_ => {
+      doTheMagic();
+    });
   }, []);
 
   return (
-    <View style={[styles.container, {backgroundColor: themeColors.primary}]}>
+    <View style={[styles.container, { backgroundColor: themeColors.primary }]}>
       <View style={styles.quotesContainer}>
         <Image
           source={require('assets/left-quote.png')}
           style={styles.quoteImg}
-          resizeMode="contain"
+          resizeMode='contain'
         />
 
         <Text style={styles.appName}>{` ${APP_NAME} `}</Text>
@@ -69,7 +67,7 @@ function SplashScreen({navigation}: SplashScreenProps) {
         <Image
           source={require('assets/right-quote.png')}
           style={styles.quoteImg}
-          resizeMode="contain"
+          resizeMode='contain'
         />
       </View>
 

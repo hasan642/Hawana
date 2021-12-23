@@ -7,6 +7,7 @@
 
 import { useEffect } from 'react';
 import messaging from '@react-native-firebase/messaging';
+import { StorageHelper } from 'helperes';
 
 /**
  * A function component wih no UI to listen to notifications.
@@ -42,8 +43,10 @@ function NotificationListener() {
     if (enabled) {
       messaging()
         .getToken()
-        .then(token => {
-          console.log('T', token);
+        .then(async token => {
+          StorageHelper.save('@fcmToken', token).catch(e => {
+            console.log('ERROE: save token to storage', e);
+          });
         })
         .catch(e => {
           console.log('ERROR: generate fcm token', e);

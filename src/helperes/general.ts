@@ -10,7 +10,7 @@ import Toast from 'react-native-toast-message';
 /**
  * Shows a toast.
  */
-export function showToast(msg: string, type: 'success' | 'error', visibilityTime = 2500) {
+export function showToast(msg: string, type: 'success' | 'error', visibilityTime = 3000) {
   try {
     Toast.show({ text1: msg, type, visibilityTime });
   } catch (e) {

@@ -10,7 +10,8 @@
         "welcome": "Welcome Back",
         "enterDataToContinue": "Enter your credentials to continue",
         "signin": "Log in",
-        "createNewAcc": "Don't have account? create now!"
+        "createNewAcc": "Don't have account? create now!",
+        "loginError": "Wrong credintials"
     },
     "signupScreen": {
         "signup": "Signup",

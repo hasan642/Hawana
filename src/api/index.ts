@@ -1,2 +1,4 @@
 import * as Api from './api';
-export { Api };
+import * as ApiTypes from './api.types';
+
+export { Api, ApiTypes };

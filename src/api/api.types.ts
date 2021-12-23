@@ -18,10 +18,19 @@ interface ErrorCommon {
   error: string;
 }
 
-// signup
+// signup api.
 export interface SignupPayload {
   phoneNumber: string;
   password: string;
 }
 interface ISignup extends SuccessCommon {}
 export type ISignupResponse = Promise<ISignup | ErrorCommon>;
+
+// login api.
+export interface LoginPayload {
+  phoneNumber: string;
+  password: string;
+  fcm_token: string;
+}
+interface ISignup extends SuccessCommon {}
+export type ILoginResponse = Promise<ISignup | ErrorCommon>;
