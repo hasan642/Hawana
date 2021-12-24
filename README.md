@@ -47,4 +47,8 @@ Chatsy is currently extended with the following plugins.
 
 - `https://exp.host/@hasan_alawneh/hawana/index.exp?release-channel={release-channel-name}&sdkVersion=44.0.0`
 
+### show published projects in our account:
+
+- `https://expo.dev/@hasan_alawneh/hawana?release-channel={release-channel-name}`
+
 ---
