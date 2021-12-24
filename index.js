@@ -2,12 +2,12 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { AppRegistry, Platform, StatusBar } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 import App from './App';
-import { name as appName } from './app.json';
 import { COLOR } from 'theme';
 import { NotificationHelper } from 'helperes';
 import messaging from '@react-native-firebase/messaging';
+import { registerRootComponent } from 'expo';
 // import TTT from './TEST';
 
 // set status bar to light (Android).
@@ -35,5 +35,8 @@ function HeadlessCheck({ isHeadless }) {
     return <App />;
 }
 
-// register the app.
-AppRegistry.registerComponent(appName, () => HeadlessCheck);
+
+// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
+// It also ensures that whether you load the app in Expo Go or in a native build,
+// the environment is set up appropriately
+registerRootComponent(HeadlessCheck);

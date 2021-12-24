@@ -1,4 +1,10 @@
 {
   "name": "Hawana",
-  "displayName": "Hawana"
+  "displayName": "Hawana",
+  "android": {
+    "package": "com.hawana"
+  },
+  "ios": {
+    "bundleIdentifier": "com.hawana.app"
+  }
 }
