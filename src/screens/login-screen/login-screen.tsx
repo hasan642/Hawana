@@ -148,8 +148,6 @@ function LoginScreen({ navigation }: LoginScreenProps) {
           <Pressable onPress={createNewAccPress} style={styles.signUpContainer}>
             <Text style={styles.signupTxt}>{translate('loginScreen.createNewAcc')}</Text>
           </Pressable>
-
-          <Text>{getVersionDetails()}</Text>
         </View>
       </KeyboardAwareScrollView>
 
