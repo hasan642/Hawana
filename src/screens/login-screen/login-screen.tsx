@@ -18,6 +18,7 @@ import styles from './styles';
 import ADIcon from 'react-native-vector-icons/AntDesign';
 import { General, StorageHelper } from 'helperes';
 import { Api, ApiTypes } from 'api';
+import { getVersionDetails } from 'config';
 
 /**
  * type checking.

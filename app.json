@@ -1,4 +1,18 @@
 {
   "name": "Hawana",
-  "displayName": "Hawana"
+  "displayName": "Hawana",
+  "expo": {
+    "name": "hawana",
+    "slug": "hawana",
+    "sdkVersion": "44.0.0",
+    "version": "1.0.0",
+    "ios": {
+      "bundleIdentifier": "com.hawana.app",
+      "buildNumber": "2"
+    },
+    "android": {
+      "package": "com.hawana",
+      "versionCode": 2
+    }
+  }
 }
