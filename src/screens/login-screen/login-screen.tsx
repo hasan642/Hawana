@@ -18,6 +18,7 @@ import styles from './styles';
 import ADIcon from 'react-native-vector-icons/AntDesign';
 import { General, StorageHelper } from 'helperes';
 import { Api, ApiTypes } from 'api';
+import { getVersionDetails } from 'config';
 
 /**
  * type checking.
@@ -147,6 +148,8 @@ function LoginScreen({ navigation }: LoginScreenProps) {
           <Pressable onPress={createNewAccPress} style={styles.signUpContainer}>
             <Text style={styles.signupTxt}>{translate('loginScreen.createNewAcc')}</Text>
           </Pressable>
+
+          <Text>{getVersionDetails()}</Text>
         </View>
       </KeyboardAwareScrollView>
 

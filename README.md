@@ -33,7 +33,7 @@ Chatsy is currently extended with the following plugins.
 
 ### supported release channels:
 
-- `staging-channel`: used for test (etc: QA testing).
+- `stg`: used for test.
 - `prod-v1`: used for production.
 
 ### steps to publish:
@@ -45,6 +45,6 @@ Chatsy is currently extended with the following plugins.
 
 ### get last published release channel details:
 
-- `https://exp.host/@zenhr/zenhr/index.exp?release-channel={release-channel-name}&sdkVersion=44.0.0`
+- `https://exp.host/@hasan_alawneh/hawana/index.exp?release-channel={release-channel-name}&sdkVersion=44.0.0`
 
 ---

@@ -1,3 +1,6 @@
+// useful for expo-updates
+import 'expo-asset';
+
 // useful for react-navigation.
 import 'react-native-gesture-handler';
 
