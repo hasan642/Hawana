@@ -5,8 +5,8 @@
  * created at: 21/12/2020
  */
 
-import {StyleSheet} from 'react-native';
-import {COLOR} from 'theme';
+import { StyleSheet } from 'react-native';
+import { COLOR } from 'theme';
 
 // constants.
 const borderRadius = 16;
@@ -44,6 +44,13 @@ const styles = StyleSheet.create({
     width: 40,
     marginLeft: 16,
     tintColor: COLOR.light,
+  },
+  fab: {
+    position: 'absolute',
+    right: 16,
+    bottom: 24,
+    margin: 16,
+    backgroundColor: COLOR.primary,
   },
 });
 

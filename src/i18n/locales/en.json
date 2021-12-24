@@ -16,5 +16,12 @@
     "signupScreen": {
         "signup": "Signup",
         "signupSuccess": "Signup success"
+    },
+    "scheduleNotificationScreen": {
+        "scheduleNotification": "Scedule a quote",
+        "writeQuote": "Write ...",
+        "quoteTime": "Time",
+        "quoteDate": "Date",
+        "sendQuote": "Send"
     }
 }

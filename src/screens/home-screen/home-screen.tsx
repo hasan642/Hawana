@@ -5,16 +5,16 @@
  * created at: 29/07/2021
  */
 
-import React, {useEffect, useLayoutEffect} from 'react';
-import {FlatList, View} from 'react-native';
-import {AllStackNavParams} from 'navigation';
-import {StackNavigationProp} from '@react-navigation/stack';
+import React, { useEffect } from 'react';
+import { FlatList, View } from 'react-native';
+import { AllStackNavParams } from 'navigation';
+import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './styles';
-import {Text} from 'components';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {COLOR} from 'theme';
-import {changeLanguage} from 'i18n';
-import {QUOTES} from 'config';
+import { Text } from 'components';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLOR } from 'theme';
+import { QUOTES } from 'config';
+import { FAB } from 'react-native-paper';
 
 /**
  * type checking.
@@ -26,52 +26,18 @@ interface HomeScreenProps {
 /**
  * A function component that shows a home screen.
  */
-function HomeScreen({navigation}: HomeScreenProps) {
+function HomeScreen({ navigation }: HomeScreenProps) {
   // navigate to home screen after some seconds.
   useEffect(() => {
     navigation.navigate('HomeScreen');
   }, []);
 
-  // set layout effect.
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerStyle: {
-        backgroundColor: COLOR.primary,
-        borderBottomWidth: 0,
-        borderBottomColor: COLOR.primary,
-        elevation: 0,
-        shadowRadius: 0,
-        shadowOffset: {
-          height: 0,
-          width: 0,
-        },
-      },
-      headerLeft: () => null,
-      // headerLeft: () => (
-      //   <TouchableOpacity activeOpacity={1} onPress={handleLeftHeaderPress}>
-      //     <Image
-      //       source={require('assets/language.png')}
-      //       style={styles.menuIcon}
-      //       resizeMode="contain"
-      //     />
-      //   </TouchableOpacity>
-      // ),
-    });
-  }, []);
-
-  /**
-   * Handles left header press.
-   */
-  const handleLeftHeaderPress = () => {
-    changeLanguage('ar');
-  };
-
   /**
    * Renderes quote item.
    */
-  const renderQuoteItem = ({item}: {item: any}) => {
+  const renderQuoteItem = ({ item }: { item: any }) => {
     return (
-      <View style={[styles.liHolder, {backgroundColor: COLOR.light}]}>
+      <View style={[styles.liHolder, { backgroundColor: COLOR.light }]}>
         <Text style={styles.liQuote}>{`“ ${item.text} ”`}</Text>
         <Text style={styles.liTime}>{item.time}</Text>
       </View>
@@ -83,6 +49,13 @@ function HomeScreen({navigation}: HomeScreenProps) {
    */
   const getKeyExtractor = (it: any) => it.time;
 
+  /**
+   * Handles fab press.
+   */
+  const handleFabPress = () => {
+    navigation.navigate('ScheduleNotificationScreen');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -91,6 +64,8 @@ function HomeScreen({navigation}: HomeScreenProps) {
         keyExtractor={getKeyExtractor}
         showsVerticalScrollIndicator={false}
       />
+
+      <FAB style={styles.fab} small icon='send' onPress={handleFabPress} />
     </SafeAreaView>
   );
 }

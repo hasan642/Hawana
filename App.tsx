@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
-import { THEME } from 'theme';
 import { ThemeContextState, ThemeContext, IThemeContextProvider } from 'context';
 import { setI18nConfig } from 'i18n';
 import { MainStackNavigator } from 'navigation/stacks';
 import { NotificationListener } from 'components';
 import Toast from 'react-native-toast-message';
+import { THEME } from 'theme';
 
 /**
  * A main function component that shows an entire app.
@@ -18,6 +18,9 @@ const App = () => {
   );
 };
 
+/**
+ * A function component that shows an internal app.
+ */
 const InternalApp = () => {
   // state.
   const [isSetupCompleted, setIsSetupCompleted] = useState<boolean>(false);

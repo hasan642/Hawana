@@ -28,7 +28,6 @@ function NotificationListener() {
    * Requests permission for iOS.
    */
   const requestUserPermission = async () => {
-    console.log('try to req permission');
     try {
       const authStatus = await messaging().requestPermission({
         sound: true,
@@ -38,11 +37,10 @@ function NotificationListener() {
         badge: false,
         provisional: true,
       });
-      console.log('authStatus', authStatus);
       const enabled =
         authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
         authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-      console.log('enabled', enabled);
+
       if (enabled) {
         const tokenFromStorage = await StorageHelper.get('@fcmToken');
         if (!tokenFromStorage) {

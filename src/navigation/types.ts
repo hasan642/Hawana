@@ -16,4 +16,6 @@ export type AllStackNavParams = {
   LoginScreen: any;
   SignupScreen: any;
   HomeScreen: any;
+  UsersScreen: any;
+  ScheduleNotificationScreen: any;
 };

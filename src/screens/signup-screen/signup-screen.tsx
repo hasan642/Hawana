@@ -115,7 +115,7 @@ function SignupScreen({ navigation }: SignupScreenProps) {
           </View>
 
           <Button
-            containerStyle={commonStyles.marginT40}
+            style={commonStyles.marginT40}
             handlePress={handleSignup}
             title={translate('signupScreen.signup')}
           />

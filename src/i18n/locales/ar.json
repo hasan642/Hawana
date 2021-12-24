@@ -16,5 +16,12 @@
     "signupScreen": {
         "signup": "إنشاء حساب",
         "signupSuccess": "تم انشاء الحساب بنجاح"
+    },
+    "scheduleNotificationScreen": {
+        "scheduleNotification": "جدول اقتباس",
+        "writeQuote": "إنتق كلماتك ...",
+        "quoteTime": "الوقت",
+        "quoteDate": "التاريخ",
+        "sendQuote": "ارسال"
     }
 }

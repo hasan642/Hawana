@@ -18,7 +18,6 @@ import styles from './styles';
 import ADIcon from 'react-native-vector-icons/AntDesign';
 import { General, StorageHelper } from 'helperes';
 import { Api, ApiTypes } from 'api';
-import { getVersionDetails } from 'config';
 
 /**
  * type checking.
@@ -139,7 +138,7 @@ function LoginScreen({ navigation }: LoginScreenProps) {
           </View>
 
           <Button
-            containerStyle={commonStyles.marginT40}
+            style={commonStyles.marginT40}
             handlePress={handleLogin}
             title={translate('loginScreen.signin')}
             disabled={!isBtnEnabled()}

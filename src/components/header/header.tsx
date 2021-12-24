@@ -24,7 +24,7 @@ interface HeaderProps {
 function Header({ handleGoBack, title, backOnly = false }: HeaderProps) {
   return (
     <Appbar.Header style={backOnly && commonStyles.transparentBG}>
-      <Appbar.BackAction color={COLOR.dark} onPress={handleGoBack} />
+      <Appbar.BackAction color={backOnly ? COLOR.dark : COLOR.light} onPress={handleGoBack} />
       {!backOnly && Boolean(title) && <Appbar.Content title={title} />}
     </Appbar.Header>
   );

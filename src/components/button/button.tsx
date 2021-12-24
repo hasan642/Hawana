@@ -16,9 +16,10 @@ interface ButtonProps {
   handlePress: () => void;
 
   // optional props.
-  containerStyle?: ViewStyle;
+  style?: ViewStyle | ViewStyle[];
   titleStyle?: TextStyle;
   disabled?: boolean;
+  icon?: string;
 }
 
 /**
@@ -27,9 +28,10 @@ interface ButtonProps {
 function ButtonComponent({
   title,
   handlePress,
-  containerStyle,
+  style: containerStyle,
   titleStyle,
   disabled,
+  icon,
 }: ButtonProps) {
   return (
     <Button
@@ -40,6 +42,7 @@ function ButtonComponent({
       onPress={handlePress}
       labelStyle={[styles.defaultLabel, titleStyle]}
       disabled={disabled}
+      icon={icon}
     >
       {title}
     </Button>

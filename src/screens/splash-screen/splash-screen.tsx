@@ -1,7 +1,7 @@
 /**
- * SplashScreen.tsx
+ * splash-screen.tsx
  * developed by Hasan Alawneh.
- * A file that shows a SplashScreen component.
+ * A file that shows a splash screen component.
  * created at: 21/12/2020
  */
 
@@ -40,7 +40,7 @@ function SplashScreen({ navigation }: SplashScreenProps) {
 
       // navigate to home.
       setTimeout(() => {
-        navigation.navigate('AuthStack');
+        navigation.navigate('AppStack');
       }, 2000);
     }
 
