@@ -17,6 +17,9 @@
         "signup": "Signup",
         "signupSuccess": "Signup success"
     },
+    "usersScreen": {
+        "selectUser": "Select participant"
+    },
     "scheduleNotificationScreen": {
         "scheduleNotification": "Scedule a quote",
         "writeQuote": "Write ...",

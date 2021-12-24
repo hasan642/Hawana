@@ -17,6 +17,9 @@
         "signup": "إنشاء حساب",
         "signupSuccess": "تم انشاء الحساب بنجاح"
     },
+    "usersScreen": {
+        "selectUser": "إختر مستلم"
+    },
     "scheduleNotificationScreen": {
         "scheduleNotification": "جدول اقتباس",
         "writeQuote": "إنتق كلماتك ...",

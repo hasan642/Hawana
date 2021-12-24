@@ -53,7 +53,7 @@ function HomeScreen({ navigation }: HomeScreenProps) {
    * Handles fab press.
    */
   const handleFabPress = () => {
-    navigation.navigate('ScheduleNotificationScreen');
+    navigation.navigate('UsersScreen');
   };
 
   return (

@@ -6,10 +6,13 @@
  */
 
 import React from 'react';
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
 import styles from './styles';
+import { Header } from 'components';
+import { translate } from 'i18n';
+import { List } from 'react-native-paper';
 
 // type checking.
 interface UsersScreenProps {
@@ -19,8 +22,44 @@ interface UsersScreenProps {
 /**
  * A function component that shows a users screen.
  */
-function UsersScreen(p: UsersScreenProps) {
-  return <View style={styles.container}></View>;
+function UsersScreen({ navigation }: UsersScreenProps) {
+  /**
+   * Extractes key for list.
+   */
+  const getKeyExtractor = (item: any, index: number) => String(index);
+
+  /**
+   * Renderes participant item.
+   */
+  const renderParticipant = ({ item }) => {
+    /**
+     * Handles select item.
+     */
+    const handleSelectItem = () => {
+      navigation.navigate('ScheduleNotificationScreen');
+    };
+
+    return (
+      <List.Item
+        onPress={handleSelectItem}
+        title='Hasan'
+        left={props => <List.Icon {...props} icon='account' />}
+      />
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <Header handleGoBack={navigation.goBack} title={translate('usersScreen.selectUser')} />
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={[1, 2, 3, 4, 5]}
+        keyExtractor={getKeyExtractor}
+        renderItem={renderParticipant}
+      />
+    </View>
+  );
 }
 
 // export as default.
