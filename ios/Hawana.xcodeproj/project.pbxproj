@@ -22,6 +22,7 @@
 		18F84B3A277669DC009BC00B /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F84B2F277669DB009BC00B /* 80.png */; };
 		18F84B3B277669DC009BC00B /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F84B30277669DB009BC00B /* 40.png */; };
 		18F84B3C277669DC009BC00B /* 87.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F84B31277669DB009BC00B /* 87.png */; };
+		18F84B3E27767085009BC00B /* notification-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18F84B3D27767085009BC00B /* notification-sound.mp3 */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		96905EF65AED1B983A6B3ABC /* libPods-Hawana.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-Hawana.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
@@ -48,6 +49,7 @@
 		18F84B2F277669DB009BC00B /* 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80.png; sourceTree = "<group>"; };
 		18F84B30277669DB009BC00B /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
 		18F84B31277669DB009BC00B /* 87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 87.png; sourceTree = "<group>"; };
+		18F84B3D27767085009BC00B /* notification-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "notification-sound.mp3"; path = "Hawana/notification-sound.mp3"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-Hawana.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hawana.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-Hawana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hawana.debug.xcconfig"; path = "Target Support Files/Pods-Hawana/Pods-Hawana.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-Hawana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hawana.release.xcconfig"; path = "Target Support Files/Pods-Hawana/Pods-Hawana.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				18F84B3D27767085009BC00B /* notification-sound.mp3 */,
 				13B07FAE1A68108700A75B9A /* Hawana */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F84B3A277669DC009BC00B /* 80.png in Resources */,
+				18F84B3E27767085009BC00B /* notification-sound.mp3 in Resources */,
 				18F84B36277669DC009BC00B /* 114.png in Resources */,
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				18F84B34277669DC009BC00B /* 58.png in Resources */,
