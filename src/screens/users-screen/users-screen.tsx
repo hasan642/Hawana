@@ -5,7 +5,7 @@
  * created at: 24/12/2020
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
@@ -23,6 +23,9 @@ interface UsersScreenProps {
  * A function component that shows a users screen.
  */
 function UsersScreen({ navigation }: UsersScreenProps) {
+  // Fetch the users from the backend side.
+  useEffect(() => {}, []);
+
   /**
    * Extractes key for list.
    */

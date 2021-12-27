@@ -14,7 +14,6 @@ import * as ApiTypes from './api.types';
 export async function signup(p: ApiTypes.SignupPayload): ApiTypes.ISignupResponse {
   try {
     const r = await axios.post('users/addNewUser', p);
-    console.log('RRRR', r.data);
     return {
       kind: ApiTypes.ResponseKind.ok,
     };
@@ -33,7 +32,6 @@ export async function signup(p: ApiTypes.SignupPayload): ApiTypes.ISignupRespons
 export async function login(p: ApiTypes.LoginPayload): ApiTypes.ILoginResponse {
   try {
     const r = await axios.post('users/login', p);
-    console.log('RRRR', r.data);
     return {
       kind: ApiTypes.ResponseKind.ok,
     };
@@ -47,6 +45,20 @@ export async function login(p: ApiTypes.LoginPayload): ApiTypes.ILoginResponse {
 }
 
 /**
+ * Fetches all users.
+ */
+export async function getAllUsers() {
+  try {
+    const r = await axios.get('users/login');
+    return {
+      kind: ApiTypes.ResponseKind.ok,
+    };
+  } catch (e) {
+    console.log('ERROR: getAllUsers_function', e);
+  }
+}
+
+/**
  * Schedules a new notification.
  */
 export async function scheduleNotification(
@@ -54,7 +66,6 @@ export async function scheduleNotification(
 ): ApiTypes.ILoginResponse {
   try {
     const r = await axios.post('firebase/pushNotification', p);
-    console.log('RRRR', r.data);
     return {
       kind: ApiTypes.ResponseKind.ok,
     };
