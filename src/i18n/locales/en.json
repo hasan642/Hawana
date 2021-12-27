@@ -1,7 +1,8 @@
 {
     "common": {
         "phoneNumber": "Phone number",
-        "password": "Password"
+        "password": "Password",
+        "username": "User name"
     },
     "splashScreen": {
         "writeQuotes": " “ write your quotes ” "
@@ -15,7 +16,8 @@
     },
     "signupScreen": {
         "signup": "Signup",
-        "signupSuccess": "Signup success"
+        "signupSuccess": "Signup success",
+        "userAlreadyError": "User is already added"
     },
     "usersScreen": {
         "selectUser": "Select participant"

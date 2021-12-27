@@ -5,14 +5,16 @@
  * created at: 24/12/2020
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
 import styles from './styles';
-import { Header } from 'components';
+import { Header, ScreenLoader } from 'components';
 import { translate } from 'i18n';
 import { List } from 'react-native-paper';
+import { getAllUsers } from 'api/api';
+import { ApiTypes } from 'api';
 
 // type checking.
 interface UsersScreenProps {
@@ -23,8 +25,23 @@ interface UsersScreenProps {
  * A function component that shows a users screen.
  */
 function UsersScreen({ navigation }: UsersScreenProps) {
+  // state.
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [users, setUsers] = useState<any[]>([]);
+
   // Fetch the users from the backend side.
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // turn on loader.
+    setIsLoading(true);
+
+    // get all users.
+    getAllUsers().then(r => {
+      if (r.kind === ApiTypes.ResponseKind.ok) {
+        setUsers(r.users);
+      }
+      setIsLoading(false);
+    });
+  }, []);
 
   /**
    * Extractes key for list.
@@ -57,10 +74,12 @@ function UsersScreen({ navigation }: UsersScreenProps) {
 
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={[1, 2, 3, 4, 5]}
+        data={users}
         keyExtractor={getKeyExtractor}
         renderItem={renderParticipant}
       />
+
+      {isLoading && <ScreenLoader />}
     </View>
   );
 }

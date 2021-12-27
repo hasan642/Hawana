@@ -1,7 +1,8 @@
 {
     "common": {
         "phoneNumber": "رقم الهاتف",
-        "password": "كلمة المرور"
+        "password": "كلمة المرور",
+        "username": "الاسم"
     },
     "splashScreen": {
         "writeQuotes": " “ أكتب اقتباساتك ” "
@@ -15,7 +16,8 @@
     },
     "signupScreen": {
         "signup": "إنشاء حساب",
-        "signupSuccess": "تم انشاء الحساب بنجاح"
+        "signupSuccess": "تم انشاء الحساب بنجاح",
+        "userAlreadyError": "المستخدم موجود مسبقاً"
     },
     "usersScreen": {
         "selectUser": "إختر مستلم"

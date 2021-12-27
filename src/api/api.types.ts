@@ -22,6 +22,7 @@ interface ErrorCommon {
 export interface SignupPayload {
   phone_number: string;
   password: string;
+  name: string;
 }
 export type ISignupResponse = Promise<SuccessCommon | ErrorCommon>;
 
@@ -41,3 +42,14 @@ export interface ScheduleNotificationPayload {
   body: string;
 }
 export type IScheduleNotificationResponse = Promise<SuccessCommon | ErrorCommon>;
+
+// getAllUsers api.
+export interface User {
+  id: string;
+  name: string;
+  profilePic: string;
+}
+interface IGetAllUsers extends SuccessCommon {
+  users: User[];
+}
+export type IGetAllUsersResponse = Promise<IGetAllUsers | ErrorCommon>;

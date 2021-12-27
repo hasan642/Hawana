@@ -41,7 +41,10 @@ function LoginScreen({ navigation }: LoginScreenProps) {
   const passwordRef = useRef<any>(null);
 
   // state.
-  const [formData, setFormData] = useState<FormData>({ phoneNumber: '', password: '' });
+  const [formData, setFormData] = useState<FormData>({
+    phoneNumber: '',
+    password: '',
+  });
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isloading, setIsloading] = useState<boolean>(false);
 
@@ -63,7 +66,9 @@ function LoginScreen({ navigation }: LoginScreenProps) {
    * Handles login press.
    */
   const handleLogin = async () => {
+    // turn on loader.
     setIsloading(true);
+
     // get and send fcm token to the user.
     const tokenFromStorage = await StorageHelper.get('@fcmToken');
     Api.login({
@@ -124,6 +129,7 @@ function LoginScreen({ navigation }: LoginScreenProps) {
               value={formData.phoneNumber}
               label={translate('common.phoneNumber')}
               handleSubmitEditing={focusToPasswordInput}
+              containerStyle={commonStyles.marginT16}
             />
             <TextField
               value={formData.password}

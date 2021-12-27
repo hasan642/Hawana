@@ -18,6 +18,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
 import { Api } from 'api';
 import { ResponseKind } from 'api/api.types';
+import { General } from 'helperes';
 
 // type checking.
 interface SignupScreenProps {
@@ -26,6 +27,7 @@ interface SignupScreenProps {
 interface FormData {
   phoneNumber: string;
   password: string;
+  username: string;
 }
 
 /**
@@ -37,12 +39,16 @@ function SignupScreen({ navigation }: SignupScreenProps) {
 
   // refs.
   const passwordRef = useRef<any>(null);
+  const phoneNumberRef = useRef<any>(null);
 
   // state.
-  const [formData, setFormData] = useState<FormData>({ phoneNumber: '', password: '' });
+  const [formData, setFormData] = useState<FormData>({
+    phoneNumber: '',
+    password: '',
+    username: '',
+  });
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoadning, setIsLoadning] = useState<boolean>(false);
-  const [errorMsg, setErrorMsg] = useState<string>('');
 
   /**
    * Handles on chnage phone number.
@@ -77,15 +83,37 @@ function SignupScreen({ navigation }: SignupScreenProps) {
    */
   const handleSignup = () => {
     setIsLoadning(true);
-    const { phoneNumber, password } = formData;
-    Api.signup({ phone_number: phoneNumber, password }).then(r => {
+    const { phoneNumber, password, username } = formData;
+    Api.signup({ phone_number: phoneNumber, password, name: username }).then(r => {
       if (r.kind === ResponseKind.ok) {
+        General.showToast(translate('signupScreen.signupSuccess'), 'success');
         setIsLoadning(false);
       } else {
         setIsLoadning(false);
-        setErrorMsg(r.error);
+        General.showToast(r.error, 'error');
       }
     });
+  };
+
+  /**
+   * Handles on chnage username.
+   */
+  const handleOnChangUsername = (val: string) => {
+    setFormData(v => ({ ...v, username: val }));
+  };
+
+  /**
+   * Focuses to phone number input.
+   */
+  const focusToPhoneNumberInput = () => {
+    phoneNumberRef.current?.focus();
+  };
+
+  /**
+   * check if btn enabled.
+   */
+  const isBtnEnabled = () => {
+    return formData.phoneNumber && formData.password && formData.username;
   };
 
   return (
@@ -96,11 +124,19 @@ function SignupScreen({ navigation }: SignupScreenProps) {
         <View style={styles.internalContainer}>
           <View style={styles.inputsHolder}>
             <TextField
+              onChangeText={handleOnChangUsername}
+              value={formData.username}
+              label={translate('common.username')}
+              handleSubmitEditing={focusToPhoneNumberInput}
+            />
+            <TextField
               KeyboardType={'default'}
               onChangeText={handleOnChnagPhoneNumber}
               value={formData.phoneNumber}
               label={translate('common.phoneNumber')}
               handleSubmitEditing={focusToPasswordInput}
+              ref={phoneNumberRef}
+              containerStyle={commonStyles.marginT16}
             />
             <TextField
               value={formData.password}
@@ -115,6 +151,7 @@ function SignupScreen({ navigation }: SignupScreenProps) {
           </View>
 
           <Button
+            disabled={!isBtnEnabled()}
             style={commonStyles.marginT40}
             handlePress={handleSignup}
             title={translate('signupScreen.signup')}

@@ -7,21 +7,27 @@
 
 import axios from './instance';
 import * as ApiTypes from './api.types';
+import { translate } from 'i18n';
 
 /**
  * Handles the signup for the user.
  */
 export async function signup(p: ApiTypes.SignupPayload): ApiTypes.ISignupResponse {
   try {
-    const r = await axios.post('users/addNewUser', p);
+    await axios.post('users/addNewUser', p);
     return {
       kind: ApiTypes.ResponseKind.ok,
     };
   } catch (e) {
     console.log('ERROR: signup_function', e);
+    let errorMsg = e.message;
+    if (e.response.data?.errorCode === 'USER_EXIST') {
+      errorMsg = translate('signupScreen.userAlreadyError');
+    }
+
     return {
       kind: ApiTypes.ResponseKind.reject,
-      error: e.message,
+      error: errorMsg,
     };
   }
 }
@@ -47,11 +53,22 @@ export async function login(p: ApiTypes.LoginPayload): ApiTypes.ILoginResponse {
 /**
  * Fetches all users.
  */
-export async function getAllUsers() {
+export async function getAllUsers(): ApiTypes.IGetAllUsersResponse {
   try {
-    const r = await axios.get('users/login');
+    const r = await axios.get('users/getUsers');
+
+    // transform raw to user.
+    function transformRaw2User(raw: any) {
+      return {
+        id: raw._id,
+        name: raw.name,
+        profilePic: raw.profile_picture,
+      } as ApiTypes.User;
+    }
+
     return {
       kind: ApiTypes.ResponseKind.ok,
+      users: r.data.users.map(transformRaw2User),
     };
   } catch (e) {
     console.log('ERROR: getAllUsers_function', e);
