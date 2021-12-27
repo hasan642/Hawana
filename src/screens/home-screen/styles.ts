@@ -45,9 +45,16 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     tintColor: COLOR.light,
   },
-  fab: {
+  sendFab: {
     position: 'absolute',
     right: 16,
+    bottom: 24,
+    margin: 16,
+    backgroundColor: COLOR.primary,
+  },
+  settingsFab: {
+    position: 'absolute',
+    left: 16,
     bottom: 24,
     margin: 16,
     backgroundColor: COLOR.primary,

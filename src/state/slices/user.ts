@@ -39,13 +39,16 @@ const userSlice = createSlice({
     reset: state => {
       state = initialState;
     },
+    updateUser: (state, { payload: user }: PayloadAction<ApiTypes.User>) => {
+      state.user = user;
+    },
   },
 });
 
 /**
  * grap the actions.
  */
-const { loadUser, loadUserSuccess, reset, loadUserFail } = userSlice.actions;
+const { loadUser, loadUserSuccess, reset, loadUserFail, updateUser } = userSlice.actions;
 
 /**
  * A function that handles user login.
@@ -106,4 +109,4 @@ export function loginUser(p: ApiTypes.LoginPayload, onSuccess?: () => void) {
  */
 export const userSelector = (state: { userStore: UserState }) => state.userStore;
 export default userSlice.reducer;
-export { reset };
+export { reset, updateUser };

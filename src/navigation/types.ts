@@ -18,4 +18,5 @@ export type AllStackNavParams = {
   HomeScreen: any;
   UsersScreen: any;
   ScheduleNotificationScreen: any;
+  ProfileScreen: any;
 };

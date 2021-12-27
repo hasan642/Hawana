@@ -28,5 +28,8 @@
         "quoteTime": "Time",
         "quoteDate": "Date",
         "sendQuote": "Send"
+    },
+    "profileScreen": {
+        "logout": "Logout"
     }
 }

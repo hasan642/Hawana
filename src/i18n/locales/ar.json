@@ -28,5 +28,8 @@
         "quoteTime": "الوقت",
         "quoteDate": "التاريخ",
         "sendQuote": "ارسال"
+    },
+    "profileScreen": {
+        "logout": "تسجيل الخروج"
     }
 }

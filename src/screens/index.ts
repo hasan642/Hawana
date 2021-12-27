@@ -11,3 +11,4 @@ export { default as LoginScreen } from './login-screen/login-screen';
 export { default as SignupScreen } from './signup-screen/signup-screen';
 export { default as UsersScreen } from './users-screen/users-screen';
 export { default as ScheduleNotificationScreen } from './schedule-notification/schedule-notification';
+export { default as ProfileScreen } from './profile-screen/profile-screen';

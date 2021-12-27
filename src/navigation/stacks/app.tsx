@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { HomeScreen, UsersScreen, ScheduleNotificationScreen } from 'screens';
+import { HomeScreen, UsersScreen, ScheduleNotificationScreen, ProfileScreen } from 'screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation/types';
 import { COMMON_NAV_SCREEN_OPTIONS } from 'navigation/constants';
@@ -21,6 +21,7 @@ function AuthStackNavigator() {
   return (
     <AppStack.Navigator initialRouteName={'HomeScreen'} screenOptions={COMMON_NAV_SCREEN_OPTIONS}>
       <AppStack.Screen name={'HomeScreen'} component={HomeScreen} />
+      <AppStack.Screen name={'ProfileScreen'} component={ProfileScreen} />
       <AppStack.Screen name={'UsersScreen'} component={UsersScreen} />
       <AppStack.Screen name={'ScheduleNotificationScreen'} component={ScheduleNotificationScreen} />
     </AppStack.Navigator>

@@ -56,6 +56,13 @@ function HomeScreen({ navigation }: HomeScreenProps) {
     navigation.navigate('UsersScreen');
   };
 
+  /**
+   * Handles go to profile.
+   */
+  const goToProfile = () => {
+    navigation.navigate('ProfileScreen');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -64,8 +71,8 @@ function HomeScreen({ navigation }: HomeScreenProps) {
         keyExtractor={getKeyExtractor}
         showsVerticalScrollIndicator={false}
       />
-
-      <FAB style={styles.fab} small icon='send' onPress={handleFabPress} />
+      <FAB style={styles.sendFab} small icon='send' onPress={handleFabPress} />
+      <FAB style={styles.settingsFab} small icon='account' onPress={goToProfile} />
     </SafeAreaView>
   );
 }

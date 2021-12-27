@@ -16,6 +16,7 @@ import { APP_NAME } from 'config';
 import { translate } from 'i18n';
 import PushNotification from 'react-native-push-notification';
 import { NotificationHelper, StorageHelper } from 'helperes';
+import { updateUser, useReduxDispatch } from 'state';
 
 /**
  * type checking
@@ -31,6 +32,9 @@ function SplashScreen({ navigation }: SplashScreenProps) {
   // use paper theme.
   const { colors: themeColors } = useTheme();
 
+  // use dispatch.
+  const d = useReduxDispatch();
+
   // navgates to home screen.
   useEffect(() => {
     // register all scheduled and go to app.
@@ -41,6 +45,7 @@ function SplashScreen({ navigation }: SplashScreenProps) {
       const user = await StorageHelper.get('@currentUser');
       let nextRoute: keyof AllStackNavParams = 'AuthStack';
       if (user !== null) {
+        d(updateUser(user));
         nextRoute = 'AppStack';
       }
 

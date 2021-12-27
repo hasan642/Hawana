@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
   transparentBG: { backgroundColor: COLOR.transparent },
   // layout.
   noWidth: { width: undefined },
+  alignSelfCenter: { alignSelf: 'center' },
 });
 
 // Gets cross elevation.

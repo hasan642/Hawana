@@ -8,7 +8,7 @@
 import { ApiTypes } from 'api';
 
 // storage keys.
-export type StorageKeys = '@language' | '@fcmToken';
+export type StorageKeys = '@language' | '@fcmToken' | '@currentUser';
 
 // export all.
 export type SaveStorageParamList = {
