@@ -16,8 +16,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { commonStyles } from 'theme';
 import styles from './styles';
 import ADIcon from 'react-native-vector-icons/AntDesign';
-import { General, StorageHelper } from 'helperes';
-import { Api, ApiTypes } from 'api';
+import { loginUser, useReduxDispatch, userSelector } from 'state';
+import { useSelector } from 'react-redux';
 
 /**
  * type checking.
@@ -37,6 +37,12 @@ function LoginScreen({ navigation }: LoginScreenProps) {
   // use top safe area inset.
   const { top: topInset } = useSafeAreaInsets();
 
+  // use redux state.
+  const { loading } = useSelector(userSelector);
+
+  // ude dispatch.
+  const d = useReduxDispatch();
+
   // refs.
   const passwordRef = useRef<any>(null);
 
@@ -46,7 +52,6 @@ function LoginScreen({ navigation }: LoginScreenProps) {
     password: '',
   });
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
-  const [isloading, setIsloading] = useState<boolean>(false);
 
   /**
    * Handles on chnage phone number.
@@ -65,25 +70,23 @@ function LoginScreen({ navigation }: LoginScreenProps) {
   /**
    * Handles login press.
    */
-  const handleLogin = async () => {
-    // turn on loader.
-    setIsloading(true);
-
-    // get and send fcm token to the user.
-    const tokenFromStorage = await StorageHelper.get('@fcmToken');
-    Api.login({
-      phone_number: formData.phoneNumber,
-      password: formData.password,
-      fcm_token: tokenFromStorage,
-      last_platform_login: Platform.OS,
-    }).then(r => {
-      if (r.kind === ApiTypes.ResponseKind.ok) {
-        setIsloading(false);
-      } else {
-        setIsloading(false);
-        General.showToast(translate('loginScreen.loginError'), 'error');
-      }
-    });
+  const handleLogin = () => {
+    d(
+      loginUser(
+        {
+          phone_number: formData.phoneNumber,
+          password: formData.password,
+          fcm_token: '',
+          last_platform_login: Platform.OS,
+        },
+        () => {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'AppStack' }],
+          });
+        }
+      )
+    );
   };
 
   /**
@@ -156,7 +159,7 @@ function LoginScreen({ navigation }: LoginScreenProps) {
         </View>
       </KeyboardAwareScrollView>
 
-      {isloading && <ScreenLoader />}
+      {loading && <ScreenLoader />}
     </View>
   );
 }

@@ -8,6 +8,8 @@
 import axios from './instance';
 import * as ApiTypes from './api.types';
 import { translate } from 'i18n';
+import { API_BASE_URL } from '@env';
+import { useReducer } from 'react';
 
 /**
  * Handles the signup for the user.
@@ -38,8 +40,14 @@ export async function signup(p: ApiTypes.SignupPayload): ApiTypes.ISignupRespons
 export async function login(p: ApiTypes.LoginPayload): ApiTypes.ILoginResponse {
   try {
     const r = await axios.post('users/login', p);
+    const user = r.data;
     return {
       kind: ApiTypes.ResponseKind.ok,
+      user: {
+        name: user.name,
+        id: user._id,
+        profilePic: `${API_BASE_URL}/${user.profile_picture}`,
+      },
     };
   } catch (e) {
     console.log('ERROR: login_function', e);

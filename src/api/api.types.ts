@@ -33,7 +33,10 @@ export interface LoginPayload {
   fcm_token: string;
   last_platform_login: string;
 }
-export type ILoginResponse = Promise<SuccessCommon | ErrorCommon>;
+interface ILogin extends SuccessCommon {
+  user: User;
+}
+export type ILoginResponse = Promise<ILogin | ErrorCommon>;
 
 // scheduleNotification api.
 export interface ScheduleNotificationPayload {

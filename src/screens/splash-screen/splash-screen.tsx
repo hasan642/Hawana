@@ -15,7 +15,7 @@ import { AllStackNavParams } from 'navigation/types';
 import { APP_NAME } from 'config';
 import { translate } from 'i18n';
 import PushNotification from 'react-native-push-notification';
-import { NotificationHelper } from 'helperes';
+import { NotificationHelper, StorageHelper } from 'helperes';
 
 /**
  * type checking
@@ -34,14 +34,21 @@ function SplashScreen({ navigation }: SplashScreenProps) {
   // navgates to home screen.
   useEffect(() => {
     // register all scheduled and go to app.
-    function doTheMagic() {
+    async function doTheMagic() {
       // scedule notifications.
       NotificationHelper.scheduleNotificationsForAllTheDay();
 
+      const user = await StorageHelper.get('@currentUser');
+      let nextRoute: keyof AllStackNavParams = 'AuthStack';
+      if (user !== null) {
+        nextRoute = 'AppStack';
+      }
+
       // navigate to home.
-      setTimeout(() => {
-        navigation.navigate('AuthStack');
-      }, 2000);
+      navigation.reset({
+        index: 0,
+        routes: [{ name: nextRoute }],
+      });
     }
 
     if (Platform.OS === 'android') {

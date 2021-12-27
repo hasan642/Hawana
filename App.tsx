@@ -6,6 +6,8 @@ import { MainStackNavigator } from 'navigation/stacks';
 import { NotificationListener } from 'components';
 import Toast from 'react-native-toast-message';
 import { THEME } from 'theme';
+import { Provider } from 'react-redux';
+import reduxStore from 'state';
 
 /**
  * A main function component that shows an entire app.
@@ -39,11 +41,13 @@ const InternalApp = () => {
   if (!isSetupCompleted) return null;
 
   return (
-    <PaperProvider theme={THEME[selectedTheme]}>
-      <MainStackNavigator />
-      <NotificationListener />
-      <Toast position='bottom' />
-    </PaperProvider>
+    <Provider store={reduxStore}>
+      <PaperProvider theme={THEME[selectedTheme]}>
+        <MainStackNavigator />
+        <NotificationListener />
+        <Toast position='bottom' />
+      </PaperProvider>
+    </Provider>
   );
 };
 
