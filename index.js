@@ -11,7 +11,9 @@ import { COLOR } from 'theme';
 import { NotificationHelper } from 'helperes';
 import messaging from '@react-native-firebase/messaging';
 import { registerRootComponent } from 'expo';
-// import TTT from './TEST';
+
+// enable reactotron.
+__DEV__ && require('./ReactotronConfig');
 
 // set status bar to light (Android).
 if (Platform.OS === 'android') {
