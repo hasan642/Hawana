@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
   },
+  avatar: {
+    alignSelf: 'center',
+    backgroundColor: COLOR.pampas,
+  },
 });
 
 // export as default.

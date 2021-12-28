@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, Image } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { AllStackNavParams } from 'navigation';
 import styles from './styles';
@@ -51,7 +51,7 @@ function UsersScreen({ navigation }: UsersScreenProps) {
   /**
    * Renderes participant item.
    */
-  const renderParticipant = ({ item }) => {
+  const renderParticipant = ({ item }: { item: ApiTypes.User }) => {
     /**
      * Handles select item.
      */
@@ -62,8 +62,19 @@ function UsersScreen({ navigation }: UsersScreenProps) {
     return (
       <List.Item
         onPress={handleSelectItem}
-        title='Hasan'
-        left={props => <List.Icon {...props} icon='account' />}
+        title={item.name}
+        left={props => (
+          <List.Icon
+            {...props}
+            icon={p => (
+              <Image
+                source={{ uri: item.profilePic }}
+                resizeMode='contain'
+                style={styles.userImg}
+              />
+            )}
+          />
+        )}
       />
     );
   };

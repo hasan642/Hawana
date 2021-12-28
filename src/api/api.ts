@@ -9,7 +9,6 @@ import axios from './instance';
 import * as ApiTypes from './api.types';
 import { translate } from 'i18n';
 import { API_BASE_URL } from '@env';
-import { useReducer } from 'react';
 
 /**
  * Handles the signup for the user.
@@ -70,7 +69,7 @@ export async function getAllUsers(): ApiTypes.IGetAllUsersResponse {
       return {
         id: raw._id,
         name: raw.name,
-        profilePic: raw.profile_picture,
+        profilePic: `${API_BASE_URL}/${raw.profile_picture}`,
       } as ApiTypes.User;
     }
 

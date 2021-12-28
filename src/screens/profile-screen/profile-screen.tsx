@@ -53,7 +53,7 @@ function ProfileScreen({ navigation }: ProfileScreenProps) {
           {...({} as any)}
           size={LAYOUT.window.width / 3}
           source={{ uri: user.profilePic }}
-          style={commonStyles.alignSelfCenter}
+          style={styles.avatar}
         />
 
         <View style={commonStyles.marginT32}>
