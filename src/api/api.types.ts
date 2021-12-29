@@ -44,6 +44,7 @@ export interface ScheduleNotificationPayload {
   user_id: string;
   title: string;
   body: string;
+  is_silent: boolean;
 }
 export type IScheduleNotificationResponse = Promise<SuccessCommon | ErrorCommon>;
 

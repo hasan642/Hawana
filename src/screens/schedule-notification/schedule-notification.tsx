@@ -79,12 +79,14 @@ function ScheduleNotificationScreen({ navigation, route }: ScheduleNotificationS
     const p: ApiTypes.ScheduleNotificationPayload = {
       date: new Date().toLocaleDateString(),
       user_id: uId,
-      body: 'gggg',
-      title: 'ggg',
+      body: quote,
+      title: 'for Ghaidaa',
+      is_silent: true,
     };
     Api.scheduleNotification(p).then(r => {
       if (r.kind === ApiTypes.ResponseKind.ok) {
         General.showToast(translate('scheduleNotificationScreen.quoteSent'), 'success');
+        setQuote('');
       } else {
         General.showToast(r.error, 'error');
       }
