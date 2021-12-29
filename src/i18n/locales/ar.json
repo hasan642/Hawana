@@ -27,7 +27,8 @@
         "writeQuote": "إنتق كلماتك ...",
         "quoteTime": "الوقت",
         "quoteDate": "التاريخ",
-        "sendQuote": "ارسال"
+        "sendQuote": "ارسال",
+        "quoteSent": "تم ارسال الاقتباس"
     },
     "profileScreen": {
         "logout": "تسجيل الخروج"

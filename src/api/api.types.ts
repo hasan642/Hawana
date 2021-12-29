@@ -40,7 +40,8 @@ export type ILoginResponse = Promise<ILogin | ErrorCommon>;
 
 // scheduleNotification api.
 export interface ScheduleNotificationPayload {
-  phone_number: string;
+  date: string;
+  user_id: string;
   title: string;
   body: string;
 }

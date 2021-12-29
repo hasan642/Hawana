@@ -56,7 +56,7 @@ function UsersScreen({ navigation }: UsersScreenProps) {
      * Handles select item.
      */
     const handleSelectItem = () => {
-      navigation.navigate('ScheduleNotificationScreen');
+      navigation.navigate('ScheduleNotificationScreen', { userId: item.id });
     };
 
     return (

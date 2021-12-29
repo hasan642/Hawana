@@ -8,6 +8,7 @@
     "i": "npx react-native run-ios",
     "s": "npx react-native start",
     "s-r": "npx react-native start --reset-cache",
+    "a-rv": "adb reverse tcp:9090 tcp:9090",
     "pod": "npx pod-install ios",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
@@ -15,6 +16,7 @@
   "dependencies": {
     "@freakycoder/react-native-text-area": "^0.1.5",
     "@react-native-async-storage/async-storage": "^1.15.14",
+    "@react-native-community/datetimepicker": "4.0.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/push-notification-ios": "^1.10.1",
     "@react-native-firebase/app": "^14.1.0",
@@ -38,6 +40,7 @@
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "1.10.3",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-modal-datetime-picker": "^13.0.0",
     "react-native-paper": "^4.11.1",
     "react-native-push-notification": "^8.1.1",
     "react-native-reanimated": "^1.13.2",

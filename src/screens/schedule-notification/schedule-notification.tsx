@@ -15,29 +15,81 @@ import { translate } from 'i18n';
 import RNTextArea from '@freakycoder/react-native-text-area';
 import commonStyles, { getCrossElevation } from 'theme/common-styles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { COLOR } from 'theme';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import { Api, ApiTypes } from 'api';
+import { General } from 'helperes';
+import { RouteProp } from '@react-navigation/native';
 
 // type checking.
+type PickerType = 'TIME' | 'DATE';
 interface ScheduleNotificationScreenProps {
   navigation: StackNavigationProp<AllStackNavParams, 'ScheduleNotificationScreen'>;
+  route: RouteProp<AllStackNavParams, 'ScheduleNotificationScreen'>;
 }
 
 /**
  * A function component that shows a schedule notification.
  */
-function ScheduleNotificationScreen({ navigation }: ScheduleNotificationScreenProps) {
+function ScheduleNotificationScreen({ navigation, route }: ScheduleNotificationScreenProps) {
+  // use nav param.
+  const uId = route.params?.userId;
+
   // state.
   const [quote, setQuote] = useState<string>('');
+  const [datePickerProps, setDatePickerProps] = useState({ visible: false, val: null });
+  const [timePickerProps, setTimePickerProps] = useState({ visible: false, val: null });
 
   /**
-   * Handles quote date press.
+   * Shows a date/time picker.
    */
-  const handleQuoteDatePress = () => {};
+  const showDatePicker = (t: PickerType) => {
+    if (t === 'TIME') {
+      setTimePickerProps(v => ({ ...v, visible: true }));
+    } else {
+      setDatePickerProps(v => ({ ...v, visible: true }));
+    }
+  };
 
   /**
-   * Handles quote time press.
+   * Handles cancel date picker.
    */
-  const handleQuoteTimePress = () => {};
+  const handleCancelDatePicker = (t: PickerType) => {
+    if (t === 'TIME') {
+      setTimePickerProps(v => ({ ...v, visible: false }));
+    } else {
+      setDatePickerProps(v => ({ ...v, visible: false }));
+    }
+  };
+
+  /**
+   * Handles select date/time from picker.
+   */
+  const handleSelectDatePicker = (d: Date, t: PickerType) => {
+    if (t === 'TIME') {
+      setTimePickerProps(v => ({ ...v, val: d, visible: false }));
+    } else {
+      setDatePickerProps(v => ({ ...v, val: d, visible: false }));
+    }
+  };
+
+  /**
+   * Handles schedule notification.
+   */
+  const handleScheduleNotification = () => {
+    const p: ApiTypes.ScheduleNotificationPayload = {
+      date: new Date().toLocaleDateString(),
+      user_id: uId,
+      body: 'gggg',
+      title: 'ggg',
+    };
+    Api.scheduleNotification(p).then(r => {
+      if (r.kind === ApiTypes.ResponseKind.ok) {
+        General.showToast(translate('scheduleNotificationScreen.quoteSent'), 'success');
+      } else {
+        General.showToast(r.error, 'error');
+      }
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -59,23 +111,37 @@ function ScheduleNotificationScreen({ navigation }: ScheduleNotificationScreenPr
           <Button
             icon='calendar'
             style={commonStyles.marginT16}
-            handlePress={handleQuoteDatePress}
+            handlePress={() => showDatePicker('DATE')}
             title={translate('scheduleNotificationScreen.quoteDate')}
           />
           <Button
             icon='clock-outline'
             style={[commonStyles.marginT16, { backgroundColor: 'rgba(0, 0, 0, 0.4)' }]}
-            handlePress={handleQuoteTimePress}
+            handlePress={() => showDatePicker('TIME')}
             title={translate('scheduleNotificationScreen.quoteTime')}
           />
 
           <Button
             style={commonStyles.marginT60}
-            handlePress={handleQuoteTimePress}
+            handlePress={handleScheduleNotification}
             title={translate('scheduleNotificationScreen.sendQuote')}
           />
         </View>
       </KeyboardAwareScrollView>
+
+      <DateTimePickerModal
+        isVisible={datePickerProps.visible}
+        mode='date'
+        onConfirm={d => handleSelectDatePicker(d, 'DATE')}
+        onCancel={() => handleCancelDatePicker('DATE')}
+      />
+
+      <DateTimePickerModal
+        isVisible={timePickerProps.visible}
+        mode='time'
+        onConfirm={d => handleSelectDatePicker(d, 'TIME')}
+        onCancel={() => handleCancelDatePicker('TIME')}
+      />
     </View>
   );
 }

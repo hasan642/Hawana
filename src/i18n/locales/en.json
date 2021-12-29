@@ -27,7 +27,8 @@
         "writeQuote": "Write ...",
         "quoteTime": "Time",
         "quoteDate": "Date",
-        "sendQuote": "Send"
+        "sendQuote": "Send",
+        "quoteSent": "Quote sent"
     },
     "profileScreen": {
         "logout": "Logout"

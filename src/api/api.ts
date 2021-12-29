@@ -87,9 +87,10 @@ export async function getAllUsers(): ApiTypes.IGetAllUsersResponse {
  */
 export async function scheduleNotification(
   p: ApiTypes.ScheduleNotificationPayload
-): ApiTypes.ILoginResponse {
+): ApiTypes.IScheduleNotificationResponse {
   try {
-    const r = await axios.post('firebase/pushNotification', p);
+    console.log('DDDDD', p);
+    await axios.post('firebase/pushNotification', p);
     return {
       kind: ApiTypes.ResponseKind.ok,
     };

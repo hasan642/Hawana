@@ -13,7 +13,7 @@ import { StorageHelper } from 'helperes';
  * A function component wih no UI to listen to notifications.
  */
 function NotificationListener() {
-  // add listeners.
+  // setup.
   useEffect(() => {
     requestUserPermission();
 
@@ -47,7 +47,7 @@ function NotificationListener() {
           messaging()
             .getToken()
             .then(async token => {
-              console.log('device token is', token);
+              console.log('GENERATED token:- ', token);
               StorageHelper.save('@fcmToken', token).catch(e => {
                 console.log('ERROE: save token to storage', e);
               });

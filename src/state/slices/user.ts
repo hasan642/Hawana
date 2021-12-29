@@ -67,7 +67,7 @@ export function loginUser(p: ApiTypes.LoginPayload, onSuccess?: () => void) {
       const tokenFromStorage = await StorageHelper.get('@fcmToken');
       p.fcm_token = tokenFromStorage;
       const createdUserResponse = await Api.login(p);
-      console.log('createdUserResponse', createdUserResponse);
+
       /**
        * hanlde if not OK.
        */

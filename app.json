@@ -6,6 +6,7 @@
     "slug": "hawana",
     "sdkVersion": "44.0.0",
     "version": "1.0.0",
+    "userInterfaceStyle": "automatic",
     "ios": {
       "bundleIdentifier": "com.hawana.app",
       "buildNumber": "2"

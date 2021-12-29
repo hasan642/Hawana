@@ -5,6 +5,11 @@
  * created at: 29/07/2021
  */
 
+// screens interfaces.
+interface IScheduleNotificationScreen {
+  userId: string;
+}
+
 // all screen props here.
 export type AllStackNavParams = {
   // stacks.
@@ -17,6 +22,6 @@ export type AllStackNavParams = {
   SignupScreen: any;
   HomeScreen: any;
   UsersScreen: any;
-  ScheduleNotificationScreen: any;
+  ScheduleNotificationScreen: IScheduleNotificationScreen;
   ProfileScreen: any;
 };
