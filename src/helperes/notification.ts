@@ -24,12 +24,16 @@ export function init() {
 
   // Must be outside of any component LifeCycle (such as `componentDidMount`).
   PushNotification.configure({
+    onRegister: x => {
+      console.log('DDDDD', x);
+    },
+
     // just iOS needs permission.
     requestPermissions: Platform.OS === 'ios',
 
     // (required) Called when a remote is received or opened, or local notification is opened
     onNotification: function (notification) {
-      console.log('NOTIFICATION:', notification);
+      // console.log('NOTIFICATION:', notification);
 
       // (required) Called when a remote is received or opened, or local notification is opened
       notification.finish(PushNotificationIOS.FetchResult.NoData);
@@ -37,10 +41,8 @@ export function init() {
 
     // (optional) Called when Registered Action is pressed and invokeApp is false, if true onNotification will be called (Android)
     onAction: function (notification) {
-      console.log('ACTION:', notification.action);
-      console.log('NOTIFICATION:', notification);
-
-      // process the action
+      // console.log('ACTION:', notification.action);
+      // console.log('NOTIFICATION:', notification);
     },
 
     // IOS ONLY (optional): default: all - Permissions to register.
@@ -69,12 +71,21 @@ export function init() {
  * Schedule notifications for all the day.
  */
 export function scheduleNotificationsForAllTheDay() {
+  PushNotification.localNotificationSchedule({
+    //... You can use all the options from localNotifications
+    message: 'My Notification Message', // (required)
+    date: new Date(Date.now() + 10 * 1000), // in 60 secs
+    allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
+
+    /* Android Only Properties */
+    repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info.
+  });
   // cancel all previous notifications.
   PushNotification.cancelAllLocalNotifications();
 
   // schedule for '12:12 PM'
   const date12And12 = new Date();
-  date12And12.setHours(12, 12, 0, 0);
+  date12And12.setHours(2, 22, 0, 0);
   scheduleNotification(0, QUOTES[0].time, QUOTES[0].text, date12And12);
 
   // schedule for '01:01 PM'
@@ -99,7 +110,7 @@ export function scheduleNotificationsForAllTheDay() {
 
   // schedule for '05:05 PM'
   const date5And5 = new Date();
-  date5And5.setHours(17, 58, 0, 0);
+  date5And5.setHours(17, 5, 0, 0);
   scheduleNotification(5, QUOTES[5].time, QUOTES[5].text, date5And5);
 
   // schedule for '06:06 PM'
@@ -129,7 +140,7 @@ export function scheduleNotificationsForAllTheDay() {
 
   // schedule for '11:11 PM'
   const date11And11 = new Date();
-  date11And11.setHours(23, 11, 0, 0);
+  date11And11.setHours(2, 36, 0, 0);
   scheduleNotification(11, QUOTES[11].time, QUOTES[11].text, date11And11);
 }
 

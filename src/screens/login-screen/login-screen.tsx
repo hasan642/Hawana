@@ -47,10 +47,7 @@ function LoginScreen({ navigation }: LoginScreenProps) {
   const passwordRef = useRef<any>(null);
 
   // state.
-  const [formData, setFormData] = useState<FormData>({
-    phoneNumber: '',
-    password: '',
-  });
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   /**
@@ -163,6 +160,12 @@ function LoginScreen({ navigation }: LoginScreenProps) {
     </View>
   );
 }
+
+// for test.
+const initialFormData = {
+  phoneNumber: __DEV__ ? '0780000000' : '',
+  password: __DEV__ ? '123456' : '',
+};
 
 // export as default.
 export default LoginScreen;

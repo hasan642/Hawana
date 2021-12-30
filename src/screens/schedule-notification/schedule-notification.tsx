@@ -76,8 +76,13 @@ function ScheduleNotificationScreen({ navigation, route }: ScheduleNotificationS
    * Handles schedule notification.
    */
   const handleScheduleNotification = () => {
+    // const timezoneOffset = new Date().getTimezoneOffset();
+    // const handledDate1 = moment().subtract(120, 'minute').toDate().getHours();
+    // const handledDate2 = moment().subtract(120, 'minute').toDate().getMinutes();
+    // console.log('timezoneOffset', timezoneOffset, 'hs', handledDate1, 'h2', handledDate2);
+    // return;
     const p: ApiTypes.ScheduleNotificationPayload = {
-      date: new Date().toLocaleDateString(),
+      date: '2021-12-30:2:18',
       user_id: uId,
       body: quote,
       title: 'for Ghaidaa',
