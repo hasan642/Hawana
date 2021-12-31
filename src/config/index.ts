@@ -7,8 +7,6 @@
 
 import { Platform } from 'react-native';
 
-export * from './expo-env';
-
 export const APP_NAME = 'HAWANA';
 export const LOCAL_NOTIFICATION_SOUND_NAME = 'notification-sound.mp3';
 export const ANDROID_NOTIFICATION_CHANNEL_NAME = 'hawana_android_notification_channel';

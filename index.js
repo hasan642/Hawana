@@ -1,16 +1,13 @@
-// useful for expo-updates
-import 'expo-asset';
-
 // useful for react-navigation.
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { Platform, StatusBar } from 'react-native';
+import { Platform, StatusBar, AppRegistry } from 'react-native';
 import App from './App';
 import { COLOR } from 'theme';
 import { NotificationHelper } from 'helperes';
 import messaging from '@react-native-firebase/messaging';
-import { registerRootComponent } from 'expo';
+import { name as appName } from './app.json';
 import moment from 'moment';
 import PushNotification from 'react-native-push-notification';
 
@@ -71,8 +68,4 @@ function HeadlessCheck({ isHeadless }) {
     return <App />;
 }
 
-
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(HeadlessCheck);
+AppRegistry.registerComponent(appName, () => HeadlessCheck);
