@@ -10,6 +10,7 @@ import messaging from '@react-native-firebase/messaging';
 import { name as appName } from './app.json';
 import moment from 'moment';
 import PushNotification from 'react-native-push-notification';
+import BackgroundFetch from "react-native-background-fetch";
 
 // enable reactotron.
 __DEV__ && require('./ReactotronConfig');
@@ -21,7 +22,7 @@ if (Platform.OS === 'android') {
 };
 
 // init notifications.
-NotificationHelper.init();
+// NotificationHelper.init();
 
 
 // Register background handler
@@ -30,33 +31,88 @@ NotificationHelper.init();
 // if not silent no need for it here.
 messaging().setBackgroundMessageHandler(async remoteMessage => {
     try {
+        // PushNotification.configure({
+        //     onRegister: x => {
+        //         console.log('register222222', x);
 
+        //         PushNotification.localNotificationSchedule({
+        //             message: 'My Notification Message.snd,and,amsnd', // (required)
+        //             date: new Date(Date.now() + 10 * 1000), // in 60 secs
+        //             actions: ['ReplyInput'],
+        //             reply_placeholder_text: 'Write your response...', // (required)
+        //             reply_button_text: 'Reply', // (required)
+        //         });
+        //     },
+
+        //     // just iOS needs permission.
+        //     requestPermissions: Platform.OS === 'ios',
+
+        //     // (required) Called when a remote is received or opened, or local notification is opened
+        //     onNotification: function (notification) {
+        //         // console.log('NOTIFICATION:', notification);
+
+        //         // (required) Called when a remote is received or opened, or local notification is opened
+        //         notification.finish(PushNotificationIOS.FetchResult.NoData);
+        //     },
+
+        //     // (optional) Called when Registered Action is pressed and invokeApp is false, if true onNotification will be called (Android)
+        //     onAction: function (notification) {
+        //         // console.log('ACTION:', notification.action);
+        //         // console.log('NOTIFICATION:', notification);
+        //     },
+
+        //     // IOS ONLY (optional): default: all - Permissions to register.
+        //     permissions: {
+        //         alert: true,
+        //         badge: true,
+        //         sound: true,
+        //     },
+
+        //     // Should the initial notification be popped automatically
+        //     // default: true
+        //     popInitialNotification: true,
+        // });
         NotificationHelper.init();
+        console.log('XXXXXXX');
 
         const notificationType = remoteMessage.data?.notification_type || null;
+        console.log('notificationType', notificationType)
         if (notificationType === 'silent') {
-            const notificationSchedulingTime = remoteMessage.data?.scheduling_time || null;
-            const notificationSchedulingTitle = remoteMessage.data?.title || null;
-            const notificationSchedulingBody = remoteMessage.data?.body || null;
-
-            // handle the date and schedule notification.
-            const [day, hours, minutes] = notificationSchedulingTime.split(':');
-            console.log('day', day.trim())
-            const notificationTime = new Date(day);
-            console.log('notificationTimenotificationTimenotificationTimenotificationTime', notificationTime)
-            console.log('hours, minutes', hours, minutes)
-            notificationTime.setHours(hours, minutes, 0, 0);
-            console.log('notificationTime', notificationTime)
-
-            const x = new Date();
-            x.setHours(2, 43, 0, 0);
-            NotificationHelper.scheduleNotification(remoteMessage.sentTime, notificationSchedulingTitle, notificationSchedulingBody, x);
-
+            // const notificationSchedulingTime = remoteMessage.data?.scheduling_time || null;
+            // const notificationSchedulingTitle = remoteMessage.data?.title || null;
+            // const notificationSchedulingBody = remoteMessage.data?.body || null;
         }
+
+        // PushNotification.localNotificationSchedule({
+        //     message: 'My Notification Message.snd,and,amsnd', // (required)
+        //     date: new Date(Date.now() + 10 * 1000), // in 60 secs
+        //     actions: ['ReplyInput'],
+        //     reply_placeholder_text: 'Write your response...', // (required)
+        //     reply_button_text: 'Reply', // (required)
+        // });
+
+        console.log('scheduled');
+
     } catch (e) {
         console.log('e', e)
     }
 });
+
+BackgroundFetch.configure(
+    {
+        minimumFetchInterval: 15,
+        stopOnTerminate: false,
+        startOnBoot: true
+    },
+    () => {
+        console.log("Received background fetch event");
+
+        BackgroundFetch.finish(BackgroundFetch.FETCH_RESULT_NEW_DATA);
+    },
+    (error) => {
+        console.log("Background fetch failed to start with error: " + error);
+    }
+);
 
 // to prevent iOS app from mounting when recieve notifications in background.
 function HeadlessCheck({ isHeadless }) {

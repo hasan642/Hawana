@@ -86,7 +86,7 @@ function ScheduleNotificationScreen({ navigation, route }: ScheduleNotificationS
       user_id: uId,
       body: quote,
       title: 'for Ghaidaa',
-      is_silent: true,
+      is_silent: false,
     };
     Api.scheduleNotification(p).then(r => {
       if (r.kind === ApiTypes.ResponseKind.ok) {

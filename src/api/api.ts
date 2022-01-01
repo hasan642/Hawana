@@ -89,7 +89,6 @@ export async function scheduleNotification(
   p: ApiTypes.ScheduleNotificationPayload
 ): ApiTypes.IScheduleNotificationResponse {
   try {
-    console.log('DDDDD', p);
     await axios.post('firebase/pushNotification', p);
     return {
       kind: ApiTypes.ResponseKind.ok,

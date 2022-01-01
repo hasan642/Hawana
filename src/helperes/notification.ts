@@ -26,6 +26,19 @@ export function init() {
   PushNotification.configure({
     onRegister: x => {
       console.log('DDDDD', x);
+
+      // schedule for '08:08 PM'
+      // const date8And8 = new Date();
+      // date8And8.setHours(20, 52, 0, 0);
+      // scheduleNotification(890, QUOTES[8].time, QUOTES[8].text, date8And8);
+
+      // PushNotification.localNotificationSchedule({
+      //   message: 'My Notification Message.snd,and,amsnd', // (required)
+      //   date: new Date(Date.now() + 5 * 1000), // in 60 secs
+      //   actions: ['ReplyInput'],
+      //   reply_placeholder_text: 'Write your response...', // (required)
+      //   reply_button_text: 'Reply', // (required)
+      // });
     },
 
     // just iOS needs permission.
@@ -71,15 +84,6 @@ export function init() {
  * Schedule notifications for all the day.
  */
 export function scheduleNotificationsForAllTheDay() {
-  PushNotification.localNotificationSchedule({
-    //... You can use all the options from localNotifications
-    message: 'My Notification Message', // (required)
-    date: new Date(Date.now() + 10 * 1000), // in 60 secs
-    allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
-
-    /* Android Only Properties */
-    repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info.
-  });
   // cancel all previous notifications.
   PushNotification.cancelAllLocalNotifications();
 

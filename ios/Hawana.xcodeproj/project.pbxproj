@@ -10,6 +10,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		183FF2B8277F584E00B48F74 /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FF2B7277F584E00B48F74 /* RNBackgroundFetch+AppDelegate.m */; };
 		18F84B25277623A6009BC00B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F84B24277623A6009BC00B /* GoogleService-Info.plist */; };
 		18F84B32277669DC009BC00B /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F84B27277669DB009BC00B /* 1024.png */; };
 		18F84B33277669DC009BC00B /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F84B28277669DB009BC00B /* 60.png */; };
@@ -36,6 +37,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Hawana/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Hawana/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Hawana/main.m; sourceTree = "<group>"; };
+		183FF2B7277F584E00B48F74 /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
 		18CD8147277BCCAB00371FEB /* HawanaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HawanaDebug.entitlements; path = Hawana/HawanaDebug.entitlements; sourceTree = "<group>"; };
 		18CD8148277BCCB900371FEB /* Hawana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Hawana.entitlements; path = Hawana/Hawana.entitlements; sourceTree = "<group>"; };
 		18CD8149277BCCD000371FEB /* HawanaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HawanaRelease.entitlements; path = Hawana/HawanaRelease.entitlements; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		13B07FAE1A68108700A75B9A /* Hawana */ = {
 			isa = PBXGroup;
 			children = (
+				183FF2B7277F584E00B48F74 /* RNBackgroundFetch+AppDelegate.m */,
 				18CD8149277BCCD000371FEB /* HawanaRelease.entitlements */,
 				18CD8148277BCCB900371FEB /* Hawana.entitlements */,
 				18CD8147277BCCAB00371FEB /* HawanaDebug.entitlements */,
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183FF2B8277F584E00B48F74 /* RNBackgroundFetch+AppDelegate.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

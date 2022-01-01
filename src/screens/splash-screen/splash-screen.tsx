@@ -39,6 +39,13 @@ function SplashScreen({ navigation }: SplashScreenProps) {
   useEffect(() => {
     // register all scheduled and go to app.
     async function doTheMagic() {
+      PushNotification.localNotificationSchedule({
+        message: 'My Notification Message.snd,and,amsnd', // (required)
+        date: new Date(Date.now() + 10 * 1000), // in 60 secs
+        actions: ['ReplyInput'],
+        reply_placeholder_text: 'Write your response...', // (required)
+        reply_button_text: 'Reply', // (required)
+      });
       // scedule notifications.
       NotificationHelper.scheduleNotificationsForAllTheDay();
 
