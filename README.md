@@ -20,35 +20,3 @@ $ yarn android
 ```sh
 $ yarn ios
 ```
-
-### Plugins
-
-Chatsy is currently extended with the following plugins.
-
-| Plugin                      | Read more                                        |
-| --------------------------- | ------------------------------------------------ |
-| React Native Navigation/Wix | [https://github.com/wix/react-native-navigation] |
-
-# Expo OTA (over the air updates)
-
-### supported release channels:
-
-- `stg`: used for test.
-- `prod-v1`: used for production.
-
-### steps to publish:
-
-- go to `Expo.plist` and change `EXUpdatesReleaseChannel` to `release-channel-name`.
-- go to `AndroidManifest.xml` and change `expo.modules.updates.EXPO_RELEASE_CHANNEL` to `release-channel-name`.
-- run `expo publish --release-channel release-channel-name`.
-  ,
-
-### get last published release channel details:
-
-- `https://exp.host/@hasan_alawneh/hawana/index.exp?release-channel={release-channel-name}&sdkVersion=44.0.0`
-
-### show published projects in our account:
-
-- `https://expo.dev/@hasan_alawneh/hawana?release-channel={release-channel-name}`
-
----
