@@ -85,7 +85,7 @@ export function scheduleNotificationsForAllTheDay() {
 
   // schedule for '12:12 PM'
   const date12And12 = new Date();
-  date12And12.setHours(2, 22, 0, 0);
+  date12And12.setHours(12, 12, 0, 0);
   scheduleNotification(0, QUOTES[0].time, QUOTES[0].text, date12And12);
 
   // schedule for '01:01 PM'
